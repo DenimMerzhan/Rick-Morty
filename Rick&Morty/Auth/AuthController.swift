@@ -15,7 +15,7 @@ class AuthController: UIViewController {
         return tapGesture
     }()
     
-    var passwordTextfield: UITextField  = {
+    private var passwordTextfield: UITextField  = {
         let textfield = UITextField()
         textfield.textColor = .white
         textfield.borderStyle = .roundedRect
@@ -24,7 +24,7 @@ class AuthController: UIViewController {
         return textfield
     }()
     
-    var loginTextField: UITextField  = {
+    private var loginTextField: UITextField  = {
         let textfield = UITextField()
         textfield.borderStyle = .roundedRect
         textfield.textColor = .white
@@ -33,7 +33,18 @@ class AuthController: UIViewController {
         return textfield
     }()
     
-    var nameAppLabel: UILabel = {
+    private lazy var authButton: UIButton = {
+        let button = UIButton()
+        button.addTarget(self, action: #selector(authPressed), for: .touchUpInside)
+        button.setTitle("Регистрация", for: .normal)
+        button.titleLabel?.textColor = .white
+        button.titleLabel?.font = .systemFont(ofSize: 20)
+        button.titleLabel?.textAlignment = .center
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
+    private var nameAppLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.text = "Rick and Morty"
@@ -42,27 +53,18 @@ class AuthController: UIViewController {
         return label
     }()
     
-    var portalmage: UIImageView = {
+    private var portalmage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = K.image.portal
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    var statusAuth: UILabel = {
-       let label = UILabel()
-        label.text = "Регистарция"
-        label.textColor = .white
-        label.font = .systemFont(ofSize: 20)
-        label.textAlignment = .center
-        return label
-    }()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(portalmage)
-        self.view.addSubview(statusAuth)
+        self.view.addSubview(authButton)
         self.view.backgroundColor = K.color.background
         self.view.addGestureRecognizer(tapGesture)
         setupConstraints()
@@ -79,7 +81,7 @@ class AuthController: UIViewController {
         
         stackView.snp.makeConstraints { make in
             make.left.top.right.equalTo(self.view).inset((UIEdgeInsets(top: 100, left: 10, bottom: 0, right: 10)))
-            make.height.equalTo(220)
+            make.height.equalTo(270)
         }
         
         loginTextField.snp.makeConstraints { make in
@@ -90,21 +92,45 @@ class AuthController: UIViewController {
             make.height.equalTo(50)
         }
         
+        authButton.snp.makeConstraints { make in
+            make.top.equalTo(stackView.snp.bottom).offset(20)
+            make.centerX.equalTo(self.view)
+            make.height.equalTo(50)
+            make.width.equalTo(180)
+        }
+        
         portalmage.snp.makeConstraints { make in
             make.centerX.equalTo(self.view)
-            make.top.equalTo(stackView.snp.bottom).offset(50)
+            make.top.equalTo(authButton.snp.bottom).offset(50)
             make.height.width.equalTo(self.view.frame.width / 2)
         }
         
-        statusAuth.snp.makeConstraints { make in
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-20)
-            make.left.right.equalTo(self.view)
-        }
     }
     
     @objc func tapOnScren(){
         loginTextField.endEditing(true)
         passwordTextfield.endEditing(true)
+    }
+    
+    @objc func authPressed(){
+        
+        guard let password = passwordTextfield.text, let passwordData = password.data(using: .utf8), let login = loginTextField.text else {return}
+        
+        do {
+            let success = try KeychainManager.save(password: passwordData, login: login)
+            if success {
+                perfomSegueToMainVC()
+            }
+        }catch {
+            print(error)
+        }
+    }
+}
+
+extension AuthController {
+    
+    func perfomSegueToMainVC(){
+        print("wow")
     }
 }
 

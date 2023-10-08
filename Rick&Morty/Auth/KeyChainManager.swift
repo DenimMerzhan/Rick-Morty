@@ -9,13 +9,27 @@ import Foundation
 
 
 enum KeychainError: Error {
-    case duplicateItem
-    case unknown(status: OSStatus)
+    case itemAlreadyExist
+    case itemNotFound
+    case errorStatus(String?)
+    
+    
+    init(status: OSStatus) {
+        switch status {
+        case errSecDuplicateItem:
+            self = .itemAlreadyExist
+        case errSecItemNotFound:
+            self = .itemNotFound
+        default:
+            let message = SecCopyErrorMessageString(status, nil) as? String
+            self = .errorStatus(message)
+        }
+    }
 }
 
 class KeychainManager {
     
-    static func save(password: Data, login: String) throws -> Bool {
+    static func save(password: Data, login: String) throws  -> Bool {
         let query : [CFString: Any] = [
             kSecClass : kSecClassGenericPassword,
             kSecAttrAccount : login,
@@ -24,13 +38,12 @@ class KeychainManager {
         
         let status = SecItemAdd(query as CFDictionary, nil)
         
-        if status == errSecDuplicateItem {
-            throw KeychainError.duplicateItem
-        }else if status == errSecSuccess {
-            throw KeychainError.unknown(status: status)
+        if status != errSecSuccess {
+            throw KeychainError.init(status: status)
+        }else {
+            print("Success Safe")
+            return true
         }
-        
-        return true
         
     }
 }

@@ -19,6 +19,7 @@ struct K {
 struct Color {
     var background = UIColor(named: "BackgroundApp")
     var backgroundCell = UIColor(named: "BackgroundCell")
+    var green = UIColor(named: "Green")
 }
 
 struct Image {
