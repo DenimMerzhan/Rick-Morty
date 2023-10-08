@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1615ABE21ADA7A458CB592B0 /* Pods_Rick_Morty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C2A582BAD7F35E4A5D7078 /* Pods_Rick_Morty.framework */; };
+		CF0E58DA2AD328D3000FE99C /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0E58D92AD328D3000FE99C /* KeyChainManager.swift */; };
+		CF0E58DD2AD32C86000FE99C /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0E58DC2AD32C86000FE99C /* K.swift */; };
 		CF6051AE2AD3278E00DF5688 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6051AD2AD3278E00DF5688 /* AppDelegate.swift */; };
 		CF6051B02AD3278E00DF5688 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6051AF2AD3278E00DF5688 /* SceneDelegate.swift */; };
-		CF6051B22AD3278E00DF5688 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6051B12AD3278E00DF5688 /* ViewController.swift */; };
+		CF6051B22AD3278E00DF5688 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6051B12AD3278E00DF5688 /* AuthController.swift */; };
 		CF6051B52AD3278E00DF5688 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF6051B32AD3278E00DF5688 /* Main.storyboard */; };
 		CF6051B72AD3278F00DF5688 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF6051B62AD3278F00DF5688 /* Assets.xcassets */; };
 		CF6051BA2AD3278F00DF5688 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF6051B82AD3278F00DF5688 /* LaunchScreen.storyboard */; };
@@ -19,10 +21,12 @@
 /* Begin PBXFileReference section */
 		45C2A582BAD7F35E4A5D7078 /* Pods_Rick_Morty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rick_Morty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		466095CF3EEDC293E1DE0006 /* Pods-Rick&Morty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rick&Morty.debug.xcconfig"; path = "Target Support Files/Pods-Rick&Morty/Pods-Rick&Morty.debug.xcconfig"; sourceTree = "<group>"; };
+		CF0E58D92AD328D3000FE99C /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
+		CF0E58DC2AD32C86000FE99C /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		CF6051AA2AD3278E00DF5688 /* Rick&Morty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rick&Morty.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6051AD2AD3278E00DF5688 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF6051AF2AD3278E00DF5688 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CF6051B12AD3278E00DF5688 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CF6051B12AD3278E00DF5688 /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		CF6051B42AD3278E00DF5688 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF6051B62AD3278F00DF5688 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF6051B92AD3278F00DF5688 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -50,6 +54,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CF0E58DB2AD328D6000FE99C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				CF0E58D92AD328D3000FE99C /* KeyChainManager.swift */,
+				CF6051B12AD3278E00DF5688 /* AuthController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		CF6051A12AD3278E00DF5688 = {
 			isa = PBXGroup;
 			children = (
@@ -72,8 +85,9 @@
 			isa = PBXGroup;
 			children = (
 				CF6051AD2AD3278E00DF5688 /* AppDelegate.swift */,
+				CF0E58DC2AD32C86000FE99C /* K.swift */,
 				CF6051AF2AD3278E00DF5688 /* SceneDelegate.swift */,
-				CF6051B12AD3278E00DF5688 /* ViewController.swift */,
+				CF0E58DB2AD328D6000FE99C /* Auth */,
 				CF6051B32AD3278E00DF5688 /* Main.storyboard */,
 				CF6051B62AD3278F00DF5688 /* Assets.xcassets */,
 				CF6051B82AD3278F00DF5688 /* LaunchScreen.storyboard */,
@@ -88,7 +102,6 @@
 				466095CF3EEDC293E1DE0006 /* Pods-Rick&Morty.debug.xcconfig */,
 				F5827D6753A697261E8039B7 /* Pods-Rick&Morty.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -207,9 +220,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF6051B22AD3278E00DF5688 /* ViewController.swift in Sources */,
+				CF6051B22AD3278E00DF5688 /* AuthController.swift in Sources */,
+				CF0E58DD2AD32C86000FE99C /* K.swift in Sources */,
 				CF6051AE2AD3278E00DF5688 /* AppDelegate.swift in Sources */,
 				CF6051B02AD3278E00DF5688 /* SceneDelegate.swift in Sources */,
+				CF0E58DA2AD328D3000FE99C /* KeyChainManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +380,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -394,6 +410,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
