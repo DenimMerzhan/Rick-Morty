@@ -114,7 +114,7 @@ class AuthController: RickAndMortyController {
         guard let password = passwordTextfield.text, let login = loginTextField.text else {return}
         let credentials = KeychainManager.Credintials(login: login, password: password)
         do {
-            try KeychainManager.shared.addCredentials(credentials, withKey: "UserAccount")
+            try KeychainManager.shared.addCredentials(credentials, withKey: K.userData.key)
             perfomSegueToMainVC()
         }catch {
             print(error)
@@ -136,7 +136,7 @@ extension AuthController {
 
 extension AuthController {
     func checkIsUserAuth(){
-        if KeychainManager.shared.getCredentials(withKey: "UserAccount") != nil {
+        if KeychainManager.shared.getCredentials(withKey: K.userData.key) != nil {
             perfomSegueToMainVC()
         }
     }

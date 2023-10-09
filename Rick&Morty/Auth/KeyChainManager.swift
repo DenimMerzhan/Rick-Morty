@@ -120,17 +120,15 @@ extension KeychainManager {
         }
     }
     
-    func deleteCredentials(withKey key: String) -> Bool {
+    func deleteCredentials(withKey key: String) throws {
         var query: [CFString: Any] = [:]
         query[kSecClass] = kSecClassGenericPassword
         query[kSecAttrLabel] = key
         
         do {
             try deleteItem(query: query)
-            return true
         } catch {
-            print("Ошибка удаления - \(error)")
-            return false
+            throw error
         }
     }
 }

@@ -12,6 +12,7 @@ struct K {
     
     static let color = Color()
     static let image = Image()
+    static let userData = UserData()
     
     
 }
@@ -24,4 +25,8 @@ struct Color {
 
 struct Image {
     var portal = UIImage(named: "Portal")
+}
+
+struct UserData {
+    var key = "UserAccount"
 }

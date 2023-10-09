@@ -33,13 +33,42 @@ class LogOutController: RickAndMortyController {
         
         logOutButton.snp.makeConstraints { make in
             make.width.equalTo(200)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(20)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-20)
             make.centerX.equalTo(self.view)
         }
     }
     
     @objc func logOutPressed(){
-        
+        let alert = createAlert()
+        self.present(alert, animated: true)
     }
     
+}
+
+//MARK: - CreateAlert
+
+extension LogOutController {
+    func createAlert() -> UIAlertController {
+        let alert = UIAlertController(title: "Выход", message: "При выходе из аккаунта данные удалятся и прийдется регистрироваться заново", preferredStyle: .alert)
+        let deletAccountAction = UIAlertAction(title: "Ок", style: .default) { [weak self] action in
+            self?.deleteUser()
+        }
+        let cancelAction = UIAlertAction(title: "Отмена", style: .default)
+        alert.addAction(deletAccountAction)
+        alert.addAction(cancelAction)
+        return alert
+    }
+}
+
+//MARK: - deleteUser
+
+extension LogOutController {
+    func deleteUser(){
+        do {
+            try KeychainManager.shared.deleteCredentials(withKey: K.userData.key)
+            self.dismiss(animated: true)
+        }catch{
+            print("Ошибка удаления пользователя - \(error)")
+        }
+    }
 }
