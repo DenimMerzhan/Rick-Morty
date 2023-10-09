@@ -68,7 +68,8 @@ extension LogOutController {
             try KeychainManager.shared.deleteCredentials(withKey: K.userData.key)
             self.dismiss(animated: true)
         }catch{
-            print("Ошибка удаления пользователя - \(error)")
+            let alert = createErrorAlert(errorMessage: "\(error)")
+            self.present(alert, animated: true)
         }
     }
 }

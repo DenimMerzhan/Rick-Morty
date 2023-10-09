@@ -117,6 +117,8 @@ class AuthController: RickAndMortyController {
             try KeychainManager.shared.addCredentials(credentials, withKey: K.userData.key)
             perfomSegueToMainVC()
         }catch {
+            let alert = createErrorAlert(errorMessage: "\(error)")
+            self.present(alert, animated: true)
             print(error)
         }
     }
@@ -127,6 +129,8 @@ class AuthController: RickAndMortyController {
 extension AuthController {
     
     func perfomSegueToMainVC(){
+        loginTextField.text = ""
+        passwordTextfield.text = ""
         let vc = LogOutController()
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)

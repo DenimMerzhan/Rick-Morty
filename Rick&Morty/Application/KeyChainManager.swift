@@ -72,6 +72,8 @@ final class KeychainManager {
 }
 
 
+//MARK: - Credintials
+
 extension KeychainManager {
     
     struct Credintials {

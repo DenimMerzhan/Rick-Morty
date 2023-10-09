@@ -12,6 +12,7 @@
 		CF0E58DD2AD32C86000FE99C /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0E58DC2AD32C86000FE99C /* K.swift */; };
 		CF0E58DF2AD3404C000FE99C /* LogOutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0E58DE2AD3404C000FE99C /* LogOutController.swift */; };
 		CF23EAB02AD40A130004C647 /* RickAndMortyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF23EAAF2AD40A130004C647 /* RickAndMortyController.swift */; };
+		CF23EAB32AD40FB50004C647 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF23EAB22AD40FB50004C647 /* Extension.swift */; };
 		CF6051AE2AD3278E00DF5688 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6051AD2AD3278E00DF5688 /* AppDelegate.swift */; };
 		CF6051B02AD3278E00DF5688 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6051AF2AD3278E00DF5688 /* SceneDelegate.swift */; };
 		CF6051B22AD3278E00DF5688 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6051B12AD3278E00DF5688 /* AuthController.swift */; };
@@ -27,6 +28,7 @@
 		CF0E58DC2AD32C86000FE99C /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		CF0E58DE2AD3404C000FE99C /* LogOutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutController.swift; sourceTree = "<group>"; };
 		CF23EAAF2AD40A130004C647 /* RickAndMortyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyController.swift; sourceTree = "<group>"; };
+		CF23EAB22AD40FB50004C647 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		CF6051AA2AD3278E00DF5688 /* Rick&Morty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rick&Morty.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6051AD2AD3278E00DF5688 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF6051AF2AD3278E00DF5688 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,7 +63,6 @@
 		CF0E58DB2AD328D6000FE99C /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				CF0E58D92AD328D3000FE99C /* KeyChainManager.swift */,
 				CF6051B12AD3278E00DF5688 /* AuthController.swift */,
 			);
 			path = Auth;
@@ -70,7 +71,9 @@
 		CF23EAB12AD40A1A0004C647 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				CF0E58D92AD328D3000FE99C /* KeyChainManager.swift */,
 				CF23EAAF2AD40A130004C647 /* RickAndMortyController.swift */,
+				CF23EAB22AD40FB50004C647 /* Extension.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				CF0E58DF2AD3404C000FE99C /* LogOutController.swift in Sources */,
 				CF23EAB02AD40A130004C647 /* RickAndMortyController.swift in Sources */,
 				CF0E58DA2AD328D3000FE99C /* KeyChainManager.swift in Sources */,
+				CF23EAB32AD40FB50004C647 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
