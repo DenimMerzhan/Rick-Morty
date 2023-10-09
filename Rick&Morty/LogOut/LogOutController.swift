@@ -33,7 +33,7 @@ class LogOutController: RickAndMortyController {
         
         logOutButton.snp.makeConstraints { make in
             make.width.equalTo(200)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-20)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-40)
             make.centerX.equalTo(self.view)
         }
     }

@@ -25,6 +25,7 @@ struct Color {
 
 struct Image {
     var portal = UIImage(named: "Portal")
+    var openDoor = UIImage(named: "OpenDoor")
 }
 
 struct UserData {

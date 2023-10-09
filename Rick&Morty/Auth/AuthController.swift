@@ -119,7 +119,6 @@ class AuthController: RickAndMortyController {
         }catch {
             let alert = createErrorAlert(errorMessage: "\(error)")
             self.present(alert, animated: true)
-            print(error)
         }
     }
 }
@@ -131,12 +130,19 @@ extension AuthController {
     func perfomSegueToMainVC(){
         loginTextField.text = ""
         passwordTextfield.text = ""
-        let vc = LogOutController()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        
+        let mainTabBarVC = UITabBarController()
+        let logOutVC = LogOutController()
+        let homeVC = HomeController()
+        mainTabBarVC.tabBar.tintColor = .green
+        logOutVC.tabBarItem = UITabBarItem(title: nil, image: K.image.openDoor, selectedImage: nil)
+        homeVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house"), selectedImage: nil)
+        
+        mainTabBarVC.setViewControllers([homeVC,logOutVC], animated: true)
+        mainTabBarVC.modalPresentationStyle = .fullScreen
+        self.present(mainTabBarVC, animated: true)
     }
 }
-
 
 extension AuthController {
     func checkIsUserAuth(){
