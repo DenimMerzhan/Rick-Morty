@@ -10,7 +10,8 @@
 		1615ABE21ADA7A458CB592B0 /* Pods_Rick_Morty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C2A582BAD7F35E4A5D7078 /* Pods_Rick_Morty.framework */; };
 		CF0E58DA2AD328D3000FE99C /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0E58D92AD328D3000FE99C /* KeyChainManager.swift */; };
 		CF0E58DD2AD32C86000FE99C /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0E58DC2AD32C86000FE99C /* K.swift */; };
-		CF0E58DF2AD3404C000FE99C /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0E58DE2AD3404C000FE99C /* MainController.swift */; };
+		CF0E58DF2AD3404C000FE99C /* LogOutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0E58DE2AD3404C000FE99C /* LogOutController.swift */; };
+		CF23EAB02AD40A130004C647 /* Rick&MortyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF23EAAF2AD40A130004C647 /* Rick&MortyController.swift */; };
 		CF6051AE2AD3278E00DF5688 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6051AD2AD3278E00DF5688 /* AppDelegate.swift */; };
 		CF6051B02AD3278E00DF5688 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6051AF2AD3278E00DF5688 /* SceneDelegate.swift */; };
 		CF6051B22AD3278E00DF5688 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6051B12AD3278E00DF5688 /* AuthController.swift */; };
@@ -24,7 +25,8 @@
 		466095CF3EEDC293E1DE0006 /* Pods-Rick&Morty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rick&Morty.debug.xcconfig"; path = "Target Support Files/Pods-Rick&Morty/Pods-Rick&Morty.debug.xcconfig"; sourceTree = "<group>"; };
 		CF0E58D92AD328D3000FE99C /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
 		CF0E58DC2AD32C86000FE99C /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
-		CF0E58DE2AD3404C000FE99C /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		CF0E58DE2AD3404C000FE99C /* LogOutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutController.swift; sourceTree = "<group>"; };
+		CF23EAAF2AD40A130004C647 /* Rick&MortyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rick&MortyController.swift"; sourceTree = "<group>"; };
 		CF6051AA2AD3278E00DF5688 /* Rick&Morty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rick&Morty.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6051AD2AD3278E00DF5688 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF6051AF2AD3278E00DF5688 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,14 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
+		CF23EAB12AD40A1A0004C647 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				CF23EAAF2AD40A130004C647 /* Rick&MortyController.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		CF6051A12AD3278E00DF5688 = {
 			isa = PBXGroup;
 			children = (
@@ -86,11 +96,12 @@
 		CF6051AC2AD3278E00DF5688 /* Rick&Morty */ = {
 			isa = PBXGroup;
 			children = (
+				CF23EAB12AD40A1A0004C647 /* Application */,
 				CF6051AD2AD3278E00DF5688 /* AppDelegate.swift */,
 				CF0E58DC2AD32C86000FE99C /* K.swift */,
 				CF6051AF2AD3278E00DF5688 /* SceneDelegate.swift */,
 				CF0E58DB2AD328D6000FE99C /* Auth */,
-				CF0E58DE2AD3404C000FE99C /* MainController.swift */,
+				CF0E58DE2AD3404C000FE99C /* LogOutController.swift */,
 				CF6051B32AD3278E00DF5688 /* Main.storyboard */,
 				CF6051B62AD3278F00DF5688 /* Assets.xcassets */,
 				CF6051B82AD3278F00DF5688 /* LaunchScreen.storyboard */,
@@ -227,7 +238,8 @@
 				CF0E58DD2AD32C86000FE99C /* K.swift in Sources */,
 				CF6051AE2AD3278E00DF5688 /* AppDelegate.swift in Sources */,
 				CF6051B02AD3278E00DF5688 /* SceneDelegate.swift in Sources */,
-				CF0E58DF2AD3404C000FE99C /* MainController.swift in Sources */,
+				CF0E58DF2AD3404C000FE99C /* LogOutController.swift in Sources */,
+				CF23EAB02AD40A130004C647 /* Rick&MortyController.swift in Sources */,
 				CF0E58DA2AD328D3000FE99C /* KeyChainManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

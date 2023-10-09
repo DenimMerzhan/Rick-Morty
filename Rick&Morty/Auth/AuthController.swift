@@ -70,6 +70,10 @@ class AuthController: UIViewController {
         setupConstraints()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        checkIsUserAuth()
+    }
+    
     func setupConstraints(){
         
         let stackView = UIStackView(arrangedSubviews: [nameAppLabel,loginTextField,passwordTextfield])
@@ -107,6 +111,7 @@ class AuthController: UIViewController {
         
     }
     
+    
     @objc func tapOnScren(){
         loginTextField.endEditing(true)
         passwordTextfield.endEditing(true)
@@ -114,13 +119,11 @@ class AuthController: UIViewController {
     
     @objc func authPressed(){
         
-        guard let password = passwordTextfield.text, let passwordData = password.data(using: .utf8), let login = loginTextField.text else {return}
-        
+        guard let password = passwordTextfield.text, let login = loginTextField.text else {return}
+        let credentials = KeychainManager.Credintials(login: login, password: password)
         do {
-            let success = try KeychainManager.save(password: passwordData, login: login)
-            if success {
-                perfomSegueToMainVC()
-            }
+            try KeychainManager.shared.addCredentials(credentials, withKey: "UserAccount")
+            perfomSegueToMainVC()
         }catch {
             print(error)
         }
@@ -130,7 +133,17 @@ class AuthController: UIViewController {
 extension AuthController {
     
     func perfomSegueToMainVC(){
-        print("wow")
+        let vc = LogOutController()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
+    }
+}
+
+extension AuthController {
+    func checkIsUserAuth(){
+        if KeychainManager.shared.getCredentials(withKey: "UserAccount") != nil {
+            perfomSegueToMainVC()
+        }
     }
 }
 
