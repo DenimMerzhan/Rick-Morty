@@ -9,13 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class LogOutController: UIViewController {
-    
-    private var portalImage: UIImageView = {
-        let imagaView = UIImageView(image: K.image.portal)
-        imagaView.contentMode = .scaleAspectFit
-        return imagaView
-    }()
+class LogOutController: RickAndMortyController {
     
     private lazy var logOutButton: UIButton = {
        let button = UIButton()
@@ -26,12 +20,12 @@ class LogOutController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = K.color.background
         self.view.addSubview(portalImage)
         self.view.addSubview(logOutButton)
     }
     
-    func setupConstrains(){
+    
+    override func setupConstraints() {
         portalImage.snp.makeConstraints { make in
             make.centerX.centerY.equalTo(self.view)
             make.height.width.equalTo(self.view.frame.width / 2)

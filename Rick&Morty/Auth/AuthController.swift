@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class AuthController: UIViewController {
+class AuthController: RickAndMortyController {
     
     private lazy var tapGesture: UITapGestureRecognizer = {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnScren))
@@ -53,28 +53,20 @@ class AuthController: UIViewController {
         return label
     }()
     
-    private var portalmage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = K.image.portal
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubview(portalmage)
+        self.view.addSubview(portalImage)
         self.view.addSubview(authButton)
-        self.view.backgroundColor = K.color.background
         self.view.addGestureRecognizer(tapGesture)
-        setupConstraints()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         checkIsUserAuth()
     }
     
-    func setupConstraints(){
+
+    override func setupConstraints(){
         
         let stackView = UIStackView(arrangedSubviews: [nameAppLabel,loginTextField,passwordTextfield])
         stackView.spacing = 20
@@ -103,7 +95,7 @@ class AuthController: UIViewController {
             make.width.equalTo(180)
         }
         
-        portalmage.snp.makeConstraints { make in
+        portalImage.snp.makeConstraints { make in
             make.centerX.equalTo(self.view)
             make.top.equalTo(authButton.snp.bottom).offset(50)
             make.height.width.equalTo(self.view.frame.width / 2)
@@ -130,6 +122,8 @@ class AuthController: UIViewController {
     }
 }
 
+//MARK: - perfomSegueToMainVC, checkIsUserAuth
+
 extension AuthController {
     
     func perfomSegueToMainVC(){
@@ -138,6 +132,7 @@ extension AuthController {
         self.present(vc, animated: true)
     }
 }
+
 
 extension AuthController {
     func checkIsUserAuth(){
