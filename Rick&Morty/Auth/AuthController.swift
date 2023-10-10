@@ -133,7 +133,7 @@ extension AuthController {
         
         let mainTabBarVC = UITabBarController()
         let logOutVC = LogOutController()
-        let homeVC = HomeController()
+        let homeVC = HomeController(collectionViewLayout: UICollectionViewFlowLayout())
         mainTabBarVC.tabBar.tintColor = .green
         logOutVC.tabBarItem = UITabBarItem(title: nil, image: K.image.openDoor, selectedImage: nil)
         homeVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house"), selectedImage: nil)
