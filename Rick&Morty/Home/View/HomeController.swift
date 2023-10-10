@@ -10,10 +10,13 @@ import UIKit
 
 class HomeController: UICollectionViewController {
     
+    var homeViewModel: HomeViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.backgroundColor = K.color.background
         collectionView.register(CharacterCell.self, forCellWithReuseIdentifier: CharacterCell.identifier)
+        homeViewModel = HomeViewModel()
     }
     
 }
@@ -21,15 +24,19 @@ class HomeController: UICollectionViewController {
 
 extension HomeController: UICollectionViewDelegateFlowLayout {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return homeViewModel?.numberOfSection ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return homeViewModel?.numberOfRowsInSection(section: section) ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCell.identifier, for: indexPath) as? CharacterCell else {return UICollectionViewCell()}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCell.identifier, for: indexPath) as? CharacterCell,
+        let homeViewModel = homeViewModel else {return UICollectionViewCell()}
+        
+        let characterCellVM = homeViewModel.cellViewModel(forIndexPath: indexPath)
+        cell.viewModel = characterCellVM as? CharacterCellViewModel
         return cell
     }
     

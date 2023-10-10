@@ -14,6 +14,14 @@ class CharacterCell: UICollectionViewCell {
     static let identifier = "CharacterCell"
     private var descriptionCharacter = ["Name", "Gender", "Status"]
     
+    weak var viewModel: CharacterCellViewModel? {
+        willSet(viewModel) {
+            name.text = viewModel?.name
+            gender.text = viewModel?.gender
+            status.text = viewModel?.status
+        }
+    }
+    
     var avatar: UIImageView = {
         let imageView =  UIImageView()
         imageView.backgroundColor = .red
