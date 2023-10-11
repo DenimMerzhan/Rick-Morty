@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class CharacterCell: UICollectionViewCell {
+final class CharacterCell: UICollectionViewCell {
     
     static let identifier = "CharacterCell"
     private var descriptionCharacter = ["Gender", "Status"]
@@ -58,10 +58,7 @@ class CharacterCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubview(avatar)
-        self.addSubview(name)
-        self.backgroundColor = K.color.backgroundCell
-        self.layer.cornerRadius = 10
+        setupView()
         setupConstraints()
     }
     
@@ -69,7 +66,14 @@ class CharacterCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupConstraints(){
+    private func setupView(){
+        self.addSubview(avatar)
+        self.addSubview(name)
+        self.backgroundColor = K.color.backgroundCell
+        self.layer.cornerRadius = 10
+    }
+    
+    private func setupConstraints(){
         avatar.snp.makeConstraints { make in
             make.left.top.right.equalTo(self).inset(UIEdgeInsets(top: 8, left: 8, bottom: 0, right: 8))
             make.height.equalTo(215)

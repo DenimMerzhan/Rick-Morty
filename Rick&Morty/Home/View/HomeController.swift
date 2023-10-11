@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Kingfisher
 
-class HomeController: UICollectionViewController {
+final class HomeController: UICollectionViewController {
     
     var homeViewModel: HomeViewModel?
     
@@ -17,8 +17,9 @@ class HomeController: UICollectionViewController {
         super.viewDidLoad()
         self.collectionView.backgroundColor = K.color.background
         collectionView.register(CharacterCell.self, forCellWithReuseIdentifier: CharacterCell.identifier)
+        collectionView.register(CharacterHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CharacterHeader.identifier)
         homeViewModel = HomeViewModel()
-        homeViewModel?.fetchCharacters(numberOfCharacters: 827, completion: {
+        homeViewModel?.fetchCharacters(numberOfCharacters: 40, completion: {
             self.collectionView.reloadData()
         })
     }
@@ -54,6 +55,35 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 100)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CharacterHeader.identifier, for: indexPath) as! CharacterHeader
+            return headerView
+        default:
+            return UICollectionReusableView()
+        }
+        
+        
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let postion = scrollView.contentOffset.y
+        
+        if postion > ( collectionView.contentSize.height - 100 - scrollView.frame.height) {
+            
+            guard  homeViewModel?.isCharacterOver == false  else { return }
+            homeViewModel?.fetchCharacters(numberOfCharacters: 40, completion: { [weak self] in
+                self?.collectionView.reloadData()
+            })
+        }
     }
     
 }

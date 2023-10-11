@@ -28,6 +28,8 @@
 		CF6051BA2AD3278F00DF5688 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF6051B82AD3278F00DF5688 /* LaunchScreen.storyboard */; };
 		CFCFF2682AD465E500B57DB4 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCFF2672AD465E500B57DB4 /* HomeController.swift */; };
 		CFCFF26D2AD4717300B57DB4 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCFF26C2AD4717300B57DB4 /* CharacterCell.swift */; };
+		CFDE7EFB2AD6E3D200252C67 /* CharacterHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE7EFA2AD6E3D200252C67 /* CharacterHeader.swift */; };
+		CFDE7EFD2AD6E4E700252C67 /* CharacterFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE7EFC2AD6E4E700252C67 /* CharacterFooter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		CF6051BB2AD3278F00DF5688 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFCFF2672AD465E500B57DB4 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		CFCFF26C2AD4717300B57DB4 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
+		CFDE7EFA2AD6E3D200252C67 /* CharacterHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterHeader.swift; sourceTree = "<group>"; };
+		CFDE7EFC2AD6E4E700252C67 /* CharacterFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFooter.swift; sourceTree = "<group>"; };
 		F5827D6753A697261E8039B7 /* Pods-Rick&Morty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rick&Morty.release.xcconfig"; path = "Target Support Files/Pods-Rick&Morty/Pods-Rick&Morty.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,10 +218,28 @@
 			isa = PBXGroup;
 			children = (
 				CFCFF2672AD465E500B57DB4 /* HomeController.swift */,
+				CFDE7EFF2AD6E56C00252C67 /* Cell */,
+				CFDE7EFE2AD6E4EA00252C67 /* ReusableView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CFDE7EFE2AD6E4EA00252C67 /* ReusableView */ = {
+			isa = PBXGroup;
+			children = (
+				CFDE7EFA2AD6E3D200252C67 /* CharacterHeader.swift */,
+				CFDE7EFC2AD6E4E700252C67 /* CharacterFooter.swift */,
+			);
+			path = ReusableView;
+			sourceTree = "<group>";
+		};
+		CFDE7EFF2AD6E56C00252C67 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
 				CFCFF26C2AD4717300B57DB4 /* CharacterCell.swift */,
 				CF13A6DD2AD5469A0055ED11 /* CharacterCellViewModel.swift */,
 			);
-			path = View;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		F90B57D6831D784E74F2F8F2 /* Pods */ = {
@@ -346,6 +368,7 @@
 			files = (
 				CF6051B22AD3278E00DF5688 /* AuthController.swift in Sources */,
 				CF0E58DD2AD32C86000FE99C /* K.swift in Sources */,
+				CFDE7EFD2AD6E4E700252C67 /* CharacterFooter.swift in Sources */,
 				CF13A6DE2AD5469A0055ED11 /* CharacterCellViewModel.swift in Sources */,
 				CF1840DA2AD5A7AF00903C5E /* DecodeJson.swift in Sources */,
 				CF6051AE2AD3278E00DF5688 /* AppDelegate.swift in Sources */,
@@ -360,6 +383,7 @@
 				CF23EAB02AD40A130004C647 /* RickAndMortyController.swift in Sources */,
 				CF13A6D32AD53C800055ED11 /* Character.swift in Sources */,
 				CF0E58DA2AD328D3000FE99C /* KeyChainManager.swift in Sources */,
+				CFDE7EFB2AD6E3D200252C67 /* CharacterHeader.swift in Sources */,
 				CF23EAB32AD40FB50004C647 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

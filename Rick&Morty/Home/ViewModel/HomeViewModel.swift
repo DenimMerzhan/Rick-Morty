@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 
 
-class HomeViewModel: HomeCollectionViewModelType {
+final class HomeViewModel: HomeCollectionViewModelType {
     
     private var indexCharacter  = 1
     private var characters = [Character]()
@@ -30,11 +30,12 @@ class HomeViewModel: HomeCollectionViewModelType {
         return cell
     }
     
-
+    
     func fetchCharacters(numberOfCharacters: Int, completion: @escaping () -> Void ) {
-        if indexCharacter > numberOfCharacters {return}
         
-        for _ in indexCharacter...numberOfCharacters {
+        let count = abs(numberOfCharacters - indexCharacter)
+        
+        for _ in 0...count {
             fetchCharacter {
                 completion()
             }

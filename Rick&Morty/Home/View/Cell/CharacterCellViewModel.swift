@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CharacterCellViewModel: CharacterCellViewModelType {
+final class CharacterCellViewModel: CharacterCellViewModelType {
     
     private var character: Character
     
