@@ -41,7 +41,14 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
         let homeViewModel = homeViewModel else {return UICollectionViewCell()}
         let characterCellVM = homeViewModel.cellViewModel(forIndexPath: indexPath)
         cell.viewModel = characterCellVM as? CharacterCellViewModel
-        cell.avatar.kf.setImage(with: characterCellVM.urlImage)
+        cell.avatar.kf.setImage(with: characterCellVM.urlImage) { result in
+            switch result {
+            case .failure(let error):
+                print("Ошибка загрузки фото - \(error.errorCode)")
+            case .success(_):
+                cell.loadIndicator.isHidden = true
+            }
+        }
         
         return cell
     }

@@ -22,10 +22,17 @@ final class CharacterCell: UICollectionViewCell {
         }
     }
     
+    var loadIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.tintColor = .white
+        indicator.startAnimating()
+        indicator.hidesWhenStopped = false
+        return indicator
+    }()
+    
     var avatar: UIImageView = {
         let imageView =  UIImageView()
-        imageView.backgroundColor = .red
-        imageView.image = UIImage(named: "Rick")
+        imageView.backgroundColor = .lightGray.withAlphaComponent(0.5)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
@@ -69,11 +76,21 @@ final class CharacterCell: UICollectionViewCell {
     private func setupView(){
         self.addSubview(avatar)
         self.addSubview(name)
+        avatar.addSubview(loadIndicator)
         self.backgroundColor = K.color.backgroundCell
         self.layer.cornerRadius = 10
     }
     
+    override func prepareForReuse() {
+        loadIndicator.startAnimating()
+    }
+    
     private func setupConstraints(){
+        
+        loadIndicator.snp.makeConstraints { make in
+            make.centerX.centerY.equalTo(avatar)
+        }
+        
         avatar.snp.makeConstraints { make in
             make.left.top.right.equalTo(self).inset(UIEdgeInsets(top: 8, left: 8, bottom: 0, right: 8))
             make.height.equalTo(215)
