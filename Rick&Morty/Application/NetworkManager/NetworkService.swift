@@ -10,6 +10,7 @@ import Foundation
 enum NetworkError: Error {
     case noData
     case networkError(String)
+    case response404
 }
 
 class NetworkService {
@@ -31,6 +32,9 @@ class NetworkService {
             if let response = response as? HTTPURLResponse {
                 if response.statusCode != 200 {
                     print("response status code - \(response.statusCode)")
+                    if response.statusCode == 404 {
+                        sendFailure(with: .response404)
+                    }
                 }
             }
             

@@ -14,6 +14,7 @@ class HomeViewModel: HomeCollectionViewModelType {
     
     private var indexCharacter  = 1
     private var characters = [Character]()
+    var isCharacterOver = false
     
     var numberOfSection: Int {
         return 1
@@ -31,7 +32,9 @@ class HomeViewModel: HomeCollectionViewModelType {
     
 
     func fetchCharacters(numberOfCharacters: Int, completion: @escaping () -> Void ) {
-        for _ in 0...numberOfCharacters {
+        if indexCharacter > numberOfCharacters {return}
+        
+        for _ in indexCharacter...numberOfCharacters {
             fetchCharacter {
                 completion()
             }
@@ -46,6 +49,11 @@ class HomeViewModel: HomeCollectionViewModelType {
             switch result {
             case.failure(let error):
                 print(error)
+                switch error {
+                case .response404:
+                    self?.isCharacterOver = true
+                default: break
+                }
             case .success(let data):
                 if let character = DecodeJson.decode(with: data, type: Character.self) {
                     self?.characters.append(character)
