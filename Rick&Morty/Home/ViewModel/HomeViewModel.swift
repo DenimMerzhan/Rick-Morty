@@ -14,7 +14,9 @@ final class HomeViewModel: HomeCollectionViewModelType {
     
     private var indexCharacter  = 1
     private var characters = [Character]()
+    
     var isCharacterOver = false
+    var isThereActiveDowloadNewCharacter = false
     
     var numberOfSection: Int {
         return 1
@@ -34,11 +36,17 @@ final class HomeViewModel: HomeCollectionViewModelType {
     func fetchCharacters(numberOfCharacters: Int, completion: @escaping () -> Void ) {
         
         let count = abs(numberOfCharacters - indexCharacter)
+        isThereActiveDowloadNewCharacter = true
         
-        for _ in 0...count {
-            fetchCharacter {
+        for i in 0...count {
+            
+            fetchCharacter { [weak self] in
                 completion()
+                if i == count {
+                    self?.isThereActiveDowloadNewCharacter = false
+                }
             }
+            
             indexCharacter += 1
         }
     }
@@ -50,6 +58,7 @@ final class HomeViewModel: HomeCollectionViewModelType {
             switch result {
             case.failure(let error):
                 print(error)
+                self?.isThereActiveDowloadNewCharacter = false
                 switch error {
                 case .response404:
                     self?.isCharacterOver = true

@@ -17,11 +17,12 @@ final class HomeController: UICollectionViewController {
         super.viewDidLoad()
         self.collectionView.backgroundColor = K.color.background
         collectionView.register(CharacterCell.self, forCellWithReuseIdentifier: CharacterCell.identifier)
-        collectionView.register(CharacterHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CharacterHeader.identifier)
         homeViewModel = HomeViewModel()
-        homeViewModel?.fetchCharacters(numberOfCharacters: 40, completion: {
+        homeViewModel?.fetchCharacters(numberOfCharacters: 20, completion: {
             self.collectionView.reloadData()
         })
+        collectionView.register(CharacterHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CharacterHeader.identifier)
+        collectionView.register(CharacterFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: CharacterFooter.identifier)
     }
     
 }
@@ -61,6 +62,11 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: view.frame.width, height: 100)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        if homeViewModel?.isThereActiveDowloadNewCharacter == true {return CGSize(width: view.frame.width, height: 100)}
+        return CGSize.zero
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         switch kind {
@@ -68,7 +74,9 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CharacterHeader.identifier, for: indexPath) as! CharacterHeader
             return headerView
         default:
-            return UICollectionReusableView()
+            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: CharacterFooter.identifier, for: indexPath) as! CharacterFooter
+            
+            return footerView
         }
         
         
@@ -80,7 +88,9 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
         if postion > ( collectionView.contentSize.height - 100 - scrollView.frame.height) {
             
             guard  homeViewModel?.isCharacterOver == false  else { return }
-            homeViewModel?.fetchCharacters(numberOfCharacters: 40, completion: { [weak self] in
+            guard homeViewModel?.isThereActiveDowloadNewCharacter == false else {return}
+            
+            homeViewModel?.fetchCharacters(numberOfCharacters: 20, completion: { [weak self] in
                 self?.collectionView.reloadData()
             })
         }
