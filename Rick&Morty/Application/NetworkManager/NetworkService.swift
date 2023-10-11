@@ -29,7 +29,9 @@ class NetworkService {
             }
             
             if let response = response as? HTTPURLResponse {
-                print("response status code - \(response)")
+                if response.statusCode != 200 {
+                    print("response status code - \(response.statusCode)")
+                }
             }
             
             if let data = data {

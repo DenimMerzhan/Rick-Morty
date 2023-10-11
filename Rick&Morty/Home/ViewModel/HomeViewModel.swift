@@ -13,11 +13,7 @@ class HomeViewModel: HomeCollectionViewModelType {
     
     private var indexCharacter  = 1
     
-    private var characters = [
-        Character(id: 22, name: "dwwd", status: "wddw", species: "dwdw", type: "wddw", gender: "dwdw", image: nil, episode: ["dwwd"]),
-        Character(id: 22, name: "dwwd", status: "wddw", species: "dwdw", type: "wddw", gender: "dwdw", image: nil, episode: ["dwwd"]),
-        Character(id: 22, name: "dwwd", status: "wddw", species: "dwdw", type: "wddw", gender: "dwdw", image: nil, episode: ["dwwd"]),
-        Character(id: 22, name: "dwwd", status: "wddw", species: "dwdw", type: "wddw", gender: "dwdw", image: nil, episode: ["dwwd"])]
+    private var characters = [Character]()
     
     var numberOfSection: Int {
         return 1

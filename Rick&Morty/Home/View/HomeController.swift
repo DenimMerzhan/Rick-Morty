@@ -17,7 +17,7 @@ class HomeController: UICollectionViewController {
         self.collectionView.backgroundColor = K.color.background
         collectionView.register(CharacterCell.self, forCellWithReuseIdentifier: CharacterCell.identifier)
         homeViewModel = HomeViewModel()
-        homeViewModel?.fetchCharacters(numberOfCharacters: 20, completion: {
+        homeViewModel?.fetchCharacters(numberOfCharacters: 10, completion: {
             self.collectionView.reloadData()
         })
     }

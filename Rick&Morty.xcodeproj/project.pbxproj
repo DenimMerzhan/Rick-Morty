@@ -11,7 +11,7 @@
 		CF0E58DA2AD328D3000FE99C /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0E58D92AD328D3000FE99C /* KeyChainManager.swift */; };
 		CF0E58DD2AD32C86000FE99C /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0E58DC2AD32C86000FE99C /* K.swift */; };
 		CF0E58DF2AD3404C000FE99C /* LogOutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0E58DE2AD3404C000FE99C /* LogOutController.swift */; };
-		CF13A6D32AD53C800055ED11 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF13A6D22AD53C800055ED11 /* Model.swift */; };
+		CF13A6D32AD53C800055ED11 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF13A6D22AD53C800055ED11 /* Character.swift */; };
 		CF13A6D62AD540FB0055ED11 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF13A6D52AD540FB0055ED11 /* HomeViewModel.swift */; };
 		CF13A6D92AD5425A0055ED11 /* HomeCollectionViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF13A6D82AD5425A0055ED11 /* HomeCollectionViewModelType.swift */; };
 		CF13A6DC2AD545620055ED11 /* CharacterCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF13A6DB2AD545620055ED11 /* CharacterCellViewModelType.swift */; };
@@ -36,7 +36,7 @@
 		CF0E58D92AD328D3000FE99C /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
 		CF0E58DC2AD32C86000FE99C /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		CF0E58DE2AD3404C000FE99C /* LogOutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutController.swift; sourceTree = "<group>"; };
-		CF13A6D22AD53C800055ED11 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		CF13A6D22AD53C800055ED11 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		CF13A6D52AD540FB0055ED11 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CF13A6D82AD5425A0055ED11 /* HomeCollectionViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewModelType.swift; sourceTree = "<group>"; };
 		CF13A6DB2AD545620055ED11 /* CharacterCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCellViewModelType.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		CF13A6D42AD53C840055ED11 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CF13A6D22AD53C800055ED11 /* Model.swift */,
+				CF13A6D22AD53C800055ED11 /* Character.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -358,7 +358,7 @@
 				CFCFF2682AD465E500B57DB4 /* HomeController.swift in Sources */,
 				CF13A6D62AD540FB0055ED11 /* HomeViewModel.swift in Sources */,
 				CF23EAB02AD40A130004C647 /* RickAndMortyController.swift in Sources */,
-				CF13A6D32AD53C800055ED11 /* Model.swift in Sources */,
+				CF13A6D32AD53C800055ED11 /* Character.swift in Sources */,
 				CF0E58DA2AD328D3000FE99C /* KeyChainManager.swift in Sources */,
 				CF23EAB32AD40FB50004C647 /* Extension.swift in Sources */,
 			);

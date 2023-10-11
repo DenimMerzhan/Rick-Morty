@@ -27,5 +27,5 @@ struct Character: Decodable {
 
 struct Origin: Decodable {
     var name: String
-    var url: URL?
+    var url: String?
 }
