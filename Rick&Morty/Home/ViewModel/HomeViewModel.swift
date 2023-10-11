@@ -13,7 +13,6 @@ import Kingfisher
 class HomeViewModel: HomeCollectionViewModelType {
     
     private var indexCharacter  = 1
-    
     private var characters = [Character]()
     
     var numberOfSection: Int {
@@ -33,10 +32,10 @@ class HomeViewModel: HomeCollectionViewModelType {
 
     func fetchCharacters(numberOfCharacters: Int, completion: @escaping () -> Void ) {
         for _ in 0...numberOfCharacters {
-            indexCharacter += 1
             fetchCharacter {
                 completion()
             }
+            indexCharacter += 1
         }
     }
     
@@ -55,7 +54,6 @@ class HomeViewModel: HomeCollectionViewModelType {
             }
         }
     }
-    
 }
 
 

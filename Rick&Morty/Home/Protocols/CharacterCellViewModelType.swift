@@ -11,4 +11,5 @@ protocol CharacterCellViewModelType {
     var name: String {get}
     var gender: String {get}
     var status: String {get}
+    var urlImage: URL? {get}
 }

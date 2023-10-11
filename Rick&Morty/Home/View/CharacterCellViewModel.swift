@@ -11,6 +11,10 @@ class CharacterCellViewModel: CharacterCellViewModelType {
     
     private var character: Character
     
+    var urlImage: URL? {
+        return character.image
+    }
+    
     var name: String {
         return character.name
     }
