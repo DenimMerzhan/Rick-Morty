@@ -8,7 +8,9 @@
 import Foundation
 import UIKit
 
-class planetCell: UITableViewCell {
+class PlanetCell: UITableViewCell {
+    
+    static let identifier = "planetCell"
     
     let image: UIImageView = {
        let imageView = UIImageView()
@@ -16,10 +18,19 @@ class planetCell: UITableViewCell {
         return imageView
     }()
     
-    let name = UILabel().createLabel(with: nil, withTextColor: .white)
-    let type = UILabel().createLabel(with: "unknow", withTextColor: .green)
+    let name = UILabel().createLabel(with: nil, withTextColor: .white, withAligment: .left)
+    let type = UILabel().createLabel(with: "unknow", withTextColor: .green, withAligment: .left)
+    
+    weak var viewModel: PlanetCellViewModel? {
+        didSet {
+            name.text = viewModel?.name
+            image.image = viewModel?.image
+        }
+    }
+    
     
     private let planetView = UIView()
+    
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [planetView,descriptionStackView])
         stackView.alignment = .center
@@ -46,9 +57,9 @@ class planetCell: UITableViewCell {
     }
     
     func setupView(){
-        self.contentView.addSubview(descriptionStackView)
-        self.contentView.backgroundColor = K.color.backgroundCell
-        self.contentView.layer.cornerRadius = 15
+        self.addSubview(stackView)
+        self.backgroundColor = K.color.backgroundCell
+        self.layer.cornerRadius = 15
         planetView.layer.cornerRadius = 10
         planetView.backgroundColor = K.color.planet
         planetView.addSubview(image)
@@ -64,7 +75,7 @@ class planetCell: UITableViewCell {
         }
         
         image.snp.makeConstraints { make in
-            make.centerX.centerY.equalTo(self)
+            make.centerX.centerY.equalTo(planetView)
             make.width.height.equalTo(20)
         }
     }

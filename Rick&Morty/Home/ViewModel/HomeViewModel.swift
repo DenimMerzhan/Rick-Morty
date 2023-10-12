@@ -12,8 +12,7 @@ import Kingfisher
 
 final class HomeViewModel: HomeViewModelType {
     
-    private var indexCharacter  = 1
-    private var characters = [Character]()
+    var characters = [Character]()
     
     var isCharacterOver = false
     var isThereActiveDowloadNewCharacter = false
@@ -21,6 +20,8 @@ final class HomeViewModel: HomeViewModelType {
     var numberOfSection: Int {
         return 1
     }
+    
+    private var indexCharacter  = 1
     
     func numberOfRowsInSection(section: Int) -> Int {
         return characters.count

@@ -17,14 +17,14 @@ class InfoViewModel: InfoViewModelType {
     var character: Character
     var episodeArr: [Episode]?
     
-    func numberOfRowsInSection(section: Int) -> Int? {
+    func numberOfRowsInSection(section: Int) -> Int {
         switch section {
         case 0:
-            return 3
+            return 1
         case 1:
             return 1
         default:
-            return episodeArr?.count
+            return episodeArr?.count ?? 0
         }
     }
     
@@ -38,7 +38,7 @@ class InfoViewModel: InfoViewModelType {
             let infoCell = InfoCellViewModel(character: character)
             return infoCell
         case 1:
-            let planetCell = PlanetCellViewModel(origin: character.origin)
+            let planetCell = PlanetCellViewModel(origin: character.location)
             return planetCell
         default:
             let episode = episodeArr?[indexPath.row]

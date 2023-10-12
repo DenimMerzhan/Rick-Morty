@@ -11,11 +11,21 @@ import UIKit
 
 final class InfoCell: UITableViewCell {
     
-    private var descriptionCharacter = ["Species", "Type", "Gender"]
+    static let identifier = "InfoCell"
     
     let species = UILabel().createLabel(with: nil, withTextColor: .white,withAligment: .left)
     let type = UILabel().createLabel(with: nil, withTextColor: .white,withAligment: .left)
     let gender = UILabel().createLabel(with: nil, withTextColor: .white,withAligment: .left)
+    
+    weak var viewModel: InfoCellViewModel? {
+        didSet {
+            species.text = viewModel?.species
+            type.text = viewModel?.type
+            gender.text = viewModel?.gender
+        }
+    }
+    
+    private var descriptionCharacter = ["Species", "Type", "Gender"]
     
     private lazy var leftStackView: UIStackView =  {
        let stackView = UIStackView()
@@ -39,10 +49,10 @@ final class InfoCell: UITableViewCell {
     
     private lazy var mostStackView: UIStackView = {
        let stackView = UIStackView(arrangedSubviews: [leftStackView,rightStackView])
-        stackView.axis = .vertical
         stackView.spacing = 69
         stackView.distribution = .fill
         stackView.alignment = .top
+        return stackView
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -56,10 +66,9 @@ final class InfoCell: UITableViewCell {
     }
     
     func setupView(){
-        self.contentView.backgroundColor = K.color.backgroundCell
-        self.contentView.layer.cornerRadius = 15
+        self.backgroundColor = K.color.backgroundCell
+        self.layer.cornerRadius = 15
         self.addSubview(mostStackView)
-        
     }
     
     func setupConstraints(){

@@ -74,6 +74,10 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
         return CGSize.zero
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        perfomSegueToInfoVC(indexPath: indexPath)
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         switch kind {
@@ -103,6 +107,20 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
         }
     }
     
+}
+
+//MARK: - SegueToInfoVC
+
+extension HomeController {
+    func perfomSegueToInfoVC(indexPath: IndexPath){
+        
+        guard let character = homeViewModel?.characters[indexPath.row] else {return}
+        let infoViewModel = InfoViewModel(character: character)
+        let infoVC = InfoController(infoViewModel: infoViewModel)
+        
+        infoVC.modalPresentationStyle = .fullScreen
+        self.present(infoVC, animated: true)
+    }
 }
 
 

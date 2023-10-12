@@ -16,6 +16,7 @@ class InfoCellViewModel: InfoCellViewModelType {
     }
     
     var type: String {
+        guard character.type != "" else {return "None"}
         return character.type
     }
     

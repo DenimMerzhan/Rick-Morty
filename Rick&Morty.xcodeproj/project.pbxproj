@@ -215,10 +215,8 @@
 		CF5F1CEF2AD728FA001E2A3E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CF90497D2AD7F61000212C57 /* CellViewModel */,
 				CF5F1CF22AD729B3001E2A3E /* InfoViewModel.swift */,
-				CF90496D2AD7DBF300212C57 /* InfoCell */,
-				CF90496E2AD7DBFD00212C57 /* PlanetCell */,
-				CF9049752AD7DC3B00212C57 /* EpisodeCel */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -235,6 +233,9 @@
 		CF5F1CF12AD7290D001E2A3E /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				CF90496B2AD7DBF000212C57 /* InfoCell.swift */,
+				CF9049712AD7DC2400212C57 /* PlanetCell.swift */,
+				CF9049732AD7DC3700212C57 /* EpisodeCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -242,11 +243,8 @@
 		CF5F1CF42AD729D6001E2A3E /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				CF5F1CF52AD729FA001E2A3E /* InfoViewModelType.swift */,
 				CF9049782AD7DF4100212C57 /* InfoType.swift */,
-				CF5F1CF72AD72A92001E2A3E /* EpisodeCellViewModelType.swift */,
-				CF5F1CFB2AD72B4B001E2A3E /* PlanetCellViewModelType.swift */,
-				CF5F1CFD2AD72BCD001E2A3E /* InfoCellViewModelType.swift */,
+				CF90497E2AD7F67500212C57 /* CellViewModelType */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -285,31 +283,25 @@
 			path = "Rick&Morty";
 			sourceTree = "<group>";
 		};
-		CF90496D2AD7DBF300212C57 /* InfoCell */ = {
+		CF90497D2AD7F61000212C57 /* CellViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				CF90496B2AD7DBF000212C57 /* InfoCell.swift */,
 				CF9049692AD7DBE600212C57 /* InfoCellViewModel.swift */,
-			);
-			path = InfoCell;
-			sourceTree = "<group>";
-		};
-		CF90496E2AD7DBFD00212C57 /* PlanetCell */ = {
-			isa = PBXGroup;
-			children = (
 				CF90496F2AD7DC1800212C57 /* PlanetCellViewModel.swift */,
-				CF9049712AD7DC2400212C57 /* PlanetCell.swift */,
-			);
-			path = PlanetCell;
-			sourceTree = "<group>";
-		};
-		CF9049752AD7DC3B00212C57 /* EpisodeCel */ = {
-			isa = PBXGroup;
-			children = (
-				CF9049732AD7DC3700212C57 /* EpisodeCell.swift */,
 				CF9049762AD7DC4E00212C57 /* EpisodeCellViewModel.swift */,
 			);
-			path = EpisodeCel;
+			path = CellViewModel;
+			sourceTree = "<group>";
+		};
+		CF90497E2AD7F67500212C57 /* CellViewModelType */ = {
+			isa = PBXGroup;
+			children = (
+				CF5F1CF52AD729FA001E2A3E /* InfoViewModelType.swift */,
+				CF5F1CF72AD72A92001E2A3E /* EpisodeCellViewModelType.swift */,
+				CF5F1CFD2AD72BCD001E2A3E /* InfoCellViewModelType.swift */,
+				CF5F1CFB2AD72B4B001E2A3E /* PlanetCellViewModelType.swift */,
+			);
+			path = CellViewModelType;
 			sourceTree = "<group>";
 		};
 		CFCFF2652AD465BE00B57DB4 /* LogOut */ = {

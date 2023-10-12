@@ -12,7 +12,7 @@ import UIKit
 protocol InfoViewModelType {
     
     var numberOfSections: Int {get}
-    func numberOfRowsInSection(section: Int) -> Int?
+    func numberOfRowsInSection(section: Int) -> Int
     
     func cellViewModel(forIndexPath indexPath: IndexPath) -> InfoType
 }

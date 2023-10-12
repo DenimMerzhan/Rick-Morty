@@ -6,4 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
+
+class EpisodeCell: UITableViewCell {
+    
+    static let identifier = "EpisodeCell"
+    
+}

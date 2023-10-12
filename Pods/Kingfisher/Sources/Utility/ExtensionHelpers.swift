@@ -56,8 +56,8 @@ extension NSBezierPath {
         let bottomRight = NSPoint(x: rect.maxX, y: rect.minY)
         
         move(to: NSPoint(x: rect.midX, y: rect.maxY))
-        appendArc(from: topLeft, to: rect.origin, radius: radiusTopLeft)
-        appendArc(from: rect.origin, to: bottomRight, radius: radiusBottomLeft)
+        appendArc(from: topLeft, to: rect.loaction, radius: radiusTopLeft)
+        appendArc(from: rect.loaction, to: bottomRight, radius: radiusBottomLeft)
         appendArc(from: bottomRight, to: topRight, radius: radiusBottomRight)
         appendArc(from: topRight, to: topLeft, radius: radiusTopRight)
         close()
