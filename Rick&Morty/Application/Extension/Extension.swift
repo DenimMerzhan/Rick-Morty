@@ -16,3 +16,16 @@ extension UIViewController {
         return alert
     }
 }
+
+extension UILabel {
+    
+    func createLabel(with text: String?, withTextColor color: UIColor, withAligment aligment:  NSTextAlignment = .center) -> UILabel {
+        let label = UILabel()
+        label.text = text
+        label.textAlignment = aligment
+        label.textColor = color
+        label.font = .systemFont(ofSize: 15)
+        return label
+    }
+    
+}

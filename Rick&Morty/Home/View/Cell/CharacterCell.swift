@@ -39,14 +39,14 @@ final class CharacterCell: UICollectionViewCell {
         return imageView
     }()
     
-    lazy var name = createLabel(with: nil, withTextColor: .white)
-    lazy var gender = createLabel(with: nil, withTextColor: .white,withAligment: .center)
-    lazy var status = createLabel(with: nil, withTextColor: .white,withAligment: .center)
+    lazy var name = UILabel().createLabel(with: nil, withTextColor: .white)
+    lazy var gender = UILabel().createLabel(with: nil, withTextColor: .white,withAligment: .center)
+    lazy var status = UILabel().createLabel(with: nil, withTextColor: .white,withAligment: .center)
     
     lazy private var leftStackView: UIStackView = {
         let stackView = UIStackView()
         descriptionCharacter.forEach { description in
-            let label = createLabel(with: description + ":", withTextColor: .lightGray)
+            let label = UILabel().createLabel(with: description + ":", withTextColor: .lightGray)
             stackView.addArrangedSubview(label)
         }
         stackView.alignment = .fill
@@ -114,17 +114,3 @@ final class CharacterCell: UICollectionViewCell {
     
 }
 
-//MARK: - CreateLabel
-
-extension CharacterCell {
-    
-    func createLabel(with text: String?, withTextColor color: UIColor, withAligment aligment:  NSTextAlignment = .center) -> UILabel {
-        let label = UILabel()
-        label.text = text
-        label.textAlignment = aligment
-        label.textColor = color
-        label.font = .systemFont(ofSize: 15)
-        return label
-    }
-    
-}

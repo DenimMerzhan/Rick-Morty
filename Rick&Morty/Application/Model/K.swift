@@ -21,6 +21,7 @@ struct Color {
     var background = UIColor(named: "BackgroundApp")
     var backgroundCell = UIColor(named: "BackgroundCell")
     var green = UIColor(named: "Green")
+    var planet = UIColor(named: "PlanetColor")
 }
 
 struct Image {
