@@ -8,13 +8,14 @@
 import Foundation
 import UIKit
 
-class InfoController: UITableViewController {
+class InfoController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var infoViewModel: InfoViewModel
+    let tableView = UITableView(frame: .zero, style: .grouped)
     
-    init(infoViewModel: InfoViewModel) {
+    init(infoViewModel: InfoViewModel){
         self.infoViewModel = infoViewModel
-        super.init(style: .grouped)
+        super.init(nibName: nil, bundle: nil)
     }
     
     
@@ -25,26 +26,37 @@ class InfoController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         startConfing()
+        setupConstraints()
     }
     
     func startConfing(){
         self.view.backgroundColor = K.color.background
-        self.tableView.backgroundColor = .red
+        self.tableView.backgroundColor = K.color.background
+        self.view.addSubview(tableView)
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         tableView.register(InfoCell.self, forCellReuseIdentifier: InfoCell.identifier)
         tableView.register(PlanetCell.self, forCellReuseIdentifier: PlanetCell.identifier)
         tableView.register(EpisodeCell.self, forCellReuseIdentifier: EpisodeCell.identifier)
-//        tableView.contentInset = .init(top: 0, left: 15, bottom: 0, right: -30)
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func setupConstraints(){
+        tableView.snp.makeConstraints { make in
+            make.left.right.equalTo(self.view).inset(UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
+            make.top.bottom.equalTo(self.view)
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return infoViewModel.numberOfSections
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return infoViewModel.numberOfRowsInSection(section: section)
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
             if let infoCell = tableView.dequeueReusableCell(withIdentifier: InfoCell.identifier, for: indexPath) as? InfoCell {
