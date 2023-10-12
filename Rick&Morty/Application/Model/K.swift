@@ -24,6 +24,7 @@ struct Color {
 }
 
 struct Image {
+    var planet = UIImage(named: "Planet")
     var portal = UIImage(named: "Portal")
     var openDoor = UIImage(named: "OpenDoor")
 }

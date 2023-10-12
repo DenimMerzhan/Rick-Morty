@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 
 
-final class HomeViewModel: HomeCollectionViewModelType {
+final class HomeViewModel: HomeViewModelType {
     
     private var indexCharacter  = 1
     private var characters = [Character]()

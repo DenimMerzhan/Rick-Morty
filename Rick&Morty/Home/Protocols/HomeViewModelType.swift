@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol HomeCollectionViewModelType {
+protocol HomeViewModelType {
     
     var numberOfSection: Int {get}
     func numberOfRowsInSection(section: Int) -> Int

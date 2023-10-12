@@ -18,7 +18,7 @@ struct Character: Decodable {
     var type: String
     var gender: String
     
-    var origin: Origin?
+    var origin: Origin
     
     var image: URL?
     var episode: [String]
