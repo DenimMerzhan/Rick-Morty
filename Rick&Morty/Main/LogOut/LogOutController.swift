@@ -72,10 +72,19 @@ extension LogOutController {
         do {
             try KeychainManager.shared.deleteCredentials(withKey: K.userData.key)
             KingfisherManager.shared.cache.clearMemoryCache()
-            self.dismiss(animated: true)
+            peromSegueToAuthVC()
         }catch{
             let alert = createErrorAlert(errorMessage: "\(error)")
             self.present(alert, animated: true)
         }
+    }
+}
+
+//MARK: - PeromSegueToAuthVC
+
+extension LogOutController {
+    func peromSegueToAuthVC(){
+        let authController = AuthController()
+        navigationController?.setViewControllers([authController], animated: true)
     }
 }
