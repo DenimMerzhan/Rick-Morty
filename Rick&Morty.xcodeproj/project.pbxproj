@@ -47,6 +47,7 @@
 		CFDE7EFB2AD6E3D200252C67 /* CharacterHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE7EFA2AD6E3D200252C67 /* CharacterHeader.swift */; };
 		CFDE7EFD2AD6E4E700252C67 /* CharacterFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE7EFC2AD6E4E700252C67 /* CharacterFooter.swift */; };
 		CFDE89FA2AD91D250072E257 /* AvatarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE89F92AD91D250072E257 /* AvatarHeaderView.swift */; };
+		CFDE89FC2AD9263A0072E257 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE89FB2AD9263A0072E257 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		CFDE7EFA2AD6E3D200252C67 /* CharacterHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterHeader.swift; sourceTree = "<group>"; };
 		CFDE7EFC2AD6E4E700252C67 /* CharacterFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFooter.swift; sourceTree = "<group>"; };
 		CFDE89F92AD91D250072E257 /* AvatarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarHeaderView.swift; sourceTree = "<group>"; };
+		CFDE89FB2AD9263A0072E257 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		F5827D6753A697261E8039B7 /* Pods-Rick&Morty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rick&Morty.release.xcconfig"; path = "Target Support Files/Pods-Rick&Morty/Pods-Rick&Morty.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -231,6 +233,7 @@
 			children = (
 				CF9049672AD7DAE400212C57 /* Episode.swift */,
 				CF90497B2AD7E06200212C57 /* InfoModel.swift */,
+				CFDE89FB2AD9263A0072E257 /* Location.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				CF9049772AD7DC4E00212C57 /* EpisodeCellViewModel.swift in Sources */,
 				CF1840D52AD5A1A500903C5E /* NetworkService.swift in Sources */,
 				CF6051B02AD3278E00DF5688 /* SceneDelegate.swift in Sources */,
+				CFDE89FC2AD9263A0072E257 /* Location.swift in Sources */,
 				CF13A6D92AD5425A0055ED11 /* HomeViewModelType.swift in Sources */,
 				CF90496C2AD7DBF000212C57 /* InfoCell.swift in Sources */,
 				CF0E58DF2AD3404C000FE99C /* LogOutController.swift in Sources */,

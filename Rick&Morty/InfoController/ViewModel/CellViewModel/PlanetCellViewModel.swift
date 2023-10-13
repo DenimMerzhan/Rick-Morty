@@ -11,17 +11,21 @@ import UIKit
 
 class PlanetCellViewModel: PlanetCellViewModelType {
     
-    var loaction: Location
+    var location: Location?
     
     var image: UIImage? {
         return K.image.planet
     }
     
-    var name: String {
-        return loaction.name
+    var name: String? {
+        return location?.name
     }
     
-    init(origin: Location) {
-        self.loaction = origin
+    var type: String? {
+        location?.type
+    }
+    
+    init(location: Location?) {
+        self.location = location
     }
 }

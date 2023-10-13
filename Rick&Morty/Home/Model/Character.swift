@@ -18,14 +18,14 @@ struct Character: Decodable {
     var type: String
     var gender: String
     
-    var location: Location
+    var location: characterLocation
     
     var image: URL?
     var episode: [String]
     
 }
 
-struct Location: Decodable {
+struct characterLocation: Decodable {
     var name: String
     var url: String?
 }

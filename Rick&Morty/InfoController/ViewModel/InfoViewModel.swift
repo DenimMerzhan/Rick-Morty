@@ -16,6 +16,7 @@ class InfoViewModel: InfoViewModelType {
     
     var character: Character
     var episodeArr =  [Episode]()
+    var location: Location?
     
     func numberOfRowsInSection(section: Int) -> Int {
         switch section {
@@ -38,7 +39,7 @@ class InfoViewModel: InfoViewModelType {
             let infoCell = InfoCellViewModel(character: character)
             return infoCell
         case 1:
-            let planetCell = PlanetCellViewModel(origin: character.location)
+            let planetCell = PlanetCellViewModel(location: location)
             return planetCell
         default:
             let episode = episodeArr[indexPath.row]
@@ -91,4 +92,22 @@ extension InfoViewModel {
     }
 }
 
+//MARK: - FetchOrigin
+
+extension InfoViewModel {
+    
+    func fetchLocation(completion: @escaping () -> Void){
+        guard let stringUrl = character.location.url, let url = URL(string: stringUrl) else {return}
+        NetworkService.shared.getData(with: url) { [weak self] result in
+            switch result {
+            case .failure(let error):
+                print("Ошибка загрузки origin - \(error)")
+            case .success(let data):
+                self?.location =  DecodeJson.decode(with: data, type: Location.self)
+                completion()
+            }
+        }
+    }
+    
+}
 

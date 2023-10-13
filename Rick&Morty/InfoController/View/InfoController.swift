@@ -44,6 +44,10 @@ class InfoController: UIViewController, UITableViewDataSource, UITableViewDelega
         infoViewModel.fetchAllEpisodes { [weak self] in
             self?.tableView.reloadData()
         }
+        
+        infoViewModel.fetchLocation { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
     
     func setupConstraints(){

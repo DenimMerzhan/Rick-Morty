@@ -12,6 +12,7 @@ import UIKit
 protocol PlanetCellViewModelType: InfoType {
  
     var image: UIImage? {get}
-    var name: String {get}
+    var name: String? {get}
+    var type: String? {get}
     
 }

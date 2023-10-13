@@ -18,13 +18,14 @@ class PlanetCell: UITableViewCell {
         return imageView
     }()
     
-    let name = UILabel().createLabel(with: nil, withTextColor: .white)
+    let name = UILabel().createLabel(with: "unknow", withTextColor: .white)
     let type = UILabel().createLabel(with: "unknow", withTextColor: .green)
     
     weak var viewModel: PlanetCellViewModel? {
         didSet {
-            name.text = viewModel?.name
+            name.text = viewModel?.name ?? "unknow"
             image.image = viewModel?.image
+            type.text = viewModel?.type ?? "unknow"
         }
     }
     
