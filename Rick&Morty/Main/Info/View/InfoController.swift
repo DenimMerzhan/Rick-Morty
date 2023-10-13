@@ -28,6 +28,10 @@ class InfoController: UIViewController, UITableViewDataSource, UITableViewDelega
         setupConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     func startConfing(){
         self.view.backgroundColor = K.color.background
         self.tableView.backgroundColor = K.color.background

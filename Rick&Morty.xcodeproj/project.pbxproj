@@ -198,7 +198,7 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		CF5F1CEB2AD728D5001E2A3E /* InfoController */ = {
+		CF5F1CEB2AD728D5001E2A3E /* Info */ = {
 			isa = PBXGroup;
 			children = (
 				CF5F1CF02AD72904001E2A3E /* Model */,
@@ -206,7 +206,7 @@
 				CF5F1CEF2AD728FA001E2A3E /* ViewModel */,
 				CF5F1CF42AD729D6001E2A3E /* Protocols */,
 			);
-			path = InfoController;
+			path = Info;
 			sourceTree = "<group>";
 		};
 		CF5F1CEE2AD728F2001E2A3E /* View */ = {
@@ -280,9 +280,7 @@
 			children = (
 				CF23EAB12AD40A1A0004C647 /* Application */,
 				CF0E58DB2AD328D6000FE99C /* Auth */,
-				CFCFF2652AD465BE00B57DB4 /* LogOut */,
-				CFCFF2662AD465D000B57DB4 /* Home */,
-				CF5F1CEB2AD728D5001E2A3E /* InfoController */,
+				CFDE89FD2AD92A3B0072E257 /* Main */,
 				CF6051B32AD3278E00DF5688 /* Main.storyboard */,
 				CF6051B62AD3278F00DF5688 /* Assets.xcassets */,
 				CF6051B82AD3278F00DF5688 /* LaunchScreen.storyboard */,
@@ -366,6 +364,16 @@
 				CF13A6DD2AD5469A0055ED11 /* CharacterCellViewModel.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		CFDE89FD2AD92A3B0072E257 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CFCFF2652AD465BE00B57DB4 /* LogOut */,
+				CFCFF2662AD465D000B57DB4 /* Home */,
+				CF5F1CEB2AD728D5001E2A3E /* Info */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		F90B57D6831D784E74F2F8F2 /* Pods */ = {

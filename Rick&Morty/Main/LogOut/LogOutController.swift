@@ -20,6 +20,11 @@ class LogOutController: RickAndMortyController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+    }
+    
+    func setupView(){
+        self.tabBarItem = UITabBarItem(title: nil, image: K.image.openDoor, selectedImage: nil)
         self.view.addSubview(portalImage)
         self.view.addSubview(logOutButton)
     }

@@ -15,6 +15,11 @@ final class HomeController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+    }
+    
+    func setupView(){
+        self.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: nil)
         self.collectionView.backgroundColor = K.color.background
         collectionView.register(CharacterCell.self, forCellWithReuseIdentifier: CharacterCell.identifier)
         homeViewModel = HomeViewModel()
@@ -23,6 +28,10 @@ final class HomeController: UICollectionViewController {
         })
         collectionView.register(CharacterHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CharacterHeader.identifier)
         collectionView.register(CharacterFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: CharacterFooter.identifier)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
 }
@@ -118,8 +127,7 @@ extension HomeController {
         let infoViewModel = InfoViewModel(character: character)
         let infoVC = InfoController(infoViewModel: infoViewModel)
         
-        infoVC.modalPresentationStyle = .fullScreen
-        self.present(infoVC, animated: true)
+        self.navigationController?.pushViewController(infoVC, animated: true)
     }
 }
 

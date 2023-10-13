@@ -127,7 +127,7 @@ class AuthController: RickAndMortyController {
 
 extension AuthController {
     
-    func perfomSegueToMainVC(){
+    func perfomSegueToMainVC() {
         loginTextField.text = ""
         passwordTextfield.text = ""
         
@@ -135,8 +135,6 @@ extension AuthController {
         let logOutVC = LogOutController()
         let homeVC = HomeController(collectionViewLayout: UICollectionViewFlowLayout())
         mainTabBarVC.tabBar.tintColor = .green
-        logOutVC.tabBarItem = UITabBarItem(title: nil, image: K.image.openDoor, selectedImage: nil)
-        homeVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house"), selectedImage: nil)
         
         mainTabBarVC.setViewControllers([homeVC,logOutVC], animated: true)
         mainTabBarVC.modalPresentationStyle = .fullScreen
