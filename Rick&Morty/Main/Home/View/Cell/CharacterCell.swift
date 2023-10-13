@@ -39,7 +39,7 @@ final class CharacterCell: UICollectionViewCell {
         return imageView
     }()
     
-    lazy var name = UILabel().createLabel(with: nil, withTextColor: .white)
+    lazy var name = UILabel().createLabel(with: nil, withTextColor: .white,withAligment: .center)
     lazy var gender = UILabel().createLabel(with: nil, withTextColor: .white,withAligment: .center)
     lazy var status = UILabel().createLabel(with: nil, withTextColor: .white,withAligment: .center)
     
@@ -79,6 +79,7 @@ final class CharacterCell: UICollectionViewCell {
         avatar.addSubview(loadIndicator)
         self.backgroundColor = K.color.backgroundCell
         self.layer.cornerRadius = 10
+        name.numberOfLines = 2
     }
     
     override func prepareForReuse() {

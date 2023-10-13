@@ -21,10 +21,10 @@ class LogOutController: RickAndMortyController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
+        startConfing()
     }
     
-    func setupView(){
+    override func startConfing(){
         self.view.addSubview(portalImage)
         self.view.addSubview(logOutButton)
     }

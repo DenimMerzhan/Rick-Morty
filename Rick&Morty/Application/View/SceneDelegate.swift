@@ -16,8 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
+        
         let navigationVC = UINavigationController()
-        let mainTabBarVC = UITabBarController()
+        let mainTabBarVC = MainTabBarController()
         
         
         if KeychainManager.shared.getCredentials(withKey: K.userData.key) != nil {
@@ -25,24 +26,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let logOutVC = LogOutController()
             let homeVC = HomeController(collectionViewLayout: UICollectionViewFlowLayout())
             
-            mainTabBarVC.tabBar.tintColor = .green
-            mainTabBarVC.tabBar.barTintColor = K.color.background
-            mainTabBarVC.view.backgroundColor = K.color.background
             mainTabBarVC.setViewControllers([homeVC,logOutVC], animated: true)
             
             logOutVC.tabBarItem = UITabBarItem(title: "LogAuth", image: K.image.openDoor, selectedImage: nil)
             
             navigationVC.navigationBar.barTintColor = K.color.background
             navigationVC.navigationBar.tintColor = .white
-            
             navigationVC.viewControllers = [mainTabBarVC]
 
-            
         }else {
             let authController = AuthController()
             navigationVC.viewControllers = [authController]
         }
-//        window?.makeKeyAndVisible()
         window?.rootViewController = navigationVC
     }
 

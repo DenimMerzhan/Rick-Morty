@@ -23,10 +23,13 @@ class RickAndMortyController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        startConfing()
         setupConstraints()
     }
     
-    
+    func startConfing(){
+        
+    }
     
     func setupConstraints(){
         

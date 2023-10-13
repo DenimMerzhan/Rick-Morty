@@ -33,6 +33,7 @@ class InfoController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func startConfing(){
+        self.tableView.showsVerticalScrollIndicator = false
         self.view.backgroundColor = K.color.background
         self.tableView.backgroundColor = K.color.background
         self.view.addSubview(tableView)
@@ -124,9 +125,5 @@ class InfoController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return .leastNormalMagnitude
-    }
-    
-    deinit {
-        print("\(self) - deinit")
     }
 }

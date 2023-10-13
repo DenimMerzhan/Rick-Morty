@@ -56,15 +56,13 @@ class AuthController: RickAndMortyController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func startConfing() {
         self.view.addSubview(portalImage)
         self.view.addSubview(authButton)
         self.view.addGestureRecognizer(tapGesture)
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        checkIsUserAuth()
-    }
-    
 
     override func setupConstraints(){
         
@@ -102,7 +100,6 @@ class AuthController: RickAndMortyController {
         }
         
     }
-    
     
     @objc func tapOnScren(){
         loginTextField.endEditing(true)
@@ -146,12 +143,5 @@ extension AuthController {
     }
 }
 
-extension AuthController {
-    func checkIsUserAuth(){
-        if KeychainManager.shared.getCredentials(withKey: K.userData.key) != nil {
-            perfomSegueToMainVC()
-        }
-    }
-}
 
 

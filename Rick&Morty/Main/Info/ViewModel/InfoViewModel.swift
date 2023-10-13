@@ -57,12 +57,7 @@ class InfoViewModel: InfoViewModelType {
         default:
             return "Episodes"
         }
-    }
-    
-    deinit {
-        print("\(self) - deinit")
-    }
-    
+    }    
 }
 
 //MARK: - FetchEpisodes

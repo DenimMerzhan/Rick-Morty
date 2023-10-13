@@ -48,6 +48,7 @@
 		CFDE7EFD2AD6E4E700252C67 /* CharacterFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE7EFC2AD6E4E700252C67 /* CharacterFooter.swift */; };
 		CFDE89FA2AD91D250072E257 /* AvatarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE89F92AD91D250072E257 /* AvatarHeaderView.swift */; };
 		CFDE89FC2AD9263A0072E257 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDE89FB2AD9263A0072E257 /* Location.swift */; };
+		CFE6F8CC2AD9732000F8BCA2 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE6F8CB2AD9732000F8BCA2 /* MainTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +96,7 @@
 		CFDE7EFC2AD6E4E700252C67 /* CharacterFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFooter.swift; sourceTree = "<group>"; };
 		CFDE89F92AD91D250072E257 /* AvatarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarHeaderView.swift; sourceTree = "<group>"; };
 		CFDE89FB2AD9263A0072E257 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		CFE6F8CB2AD9732000F8BCA2 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F5827D6753A697261E8039B7 /* Pods-Rick&Morty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rick&Morty.release.xcconfig"; path = "Target Support Files/Pods-Rick&Morty/Pods-Rick&Morty.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -369,6 +371,7 @@
 		CFDE89FD2AD92A3B0072E257 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				CFE6F8CB2AD9732000F8BCA2 /* MainTabBarController.swift */,
 				CFCFF2652AD465BE00B57DB4 /* LogOut */,
 				CFCFF2662AD465D000B57DB4 /* Home */,
 				CF5F1CEB2AD728D5001E2A3E /* Info */,
@@ -532,6 +535,7 @@
 				CF23EAB02AD40A130004C647 /* RickAndMortyController.swift in Sources */,
 				CF13A6D32AD53C800055ED11 /* Character.swift in Sources */,
 				CF9049702AD7DC1800212C57 /* PlanetCellViewModel.swift in Sources */,
+				CFE6F8CC2AD9732000F8BCA2 /* MainTabBarController.swift in Sources */,
 				CF0E58DA2AD328D3000FE99C /* KeyChainManager.swift in Sources */,
 				CFDE7EFB2AD6E3D200252C67 /* CharacterHeader.swift in Sources */,
 				CF90497C2AD7E06200212C57 /* InfoModel.swift in Sources */,
