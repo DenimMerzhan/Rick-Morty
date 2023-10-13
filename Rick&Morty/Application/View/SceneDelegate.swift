@@ -13,10 +13,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: windowScene)
+        
+        let navigationVC = UINavigationController()
+        let mainTabBarVC = MainTabBarController()
+        
+        
+        if KeychainManager.shared.getCredentials(withKey: K.userData.key) != nil {
+            
+            let logOutVC = LogOutController()
+            let homeVC = HomeController(collectionViewLayout: UICollectionViewFlowLayout())
+            
+            mainTabBarVC.setViewControllers([homeVC,logOutVC], animated: true)
+            
+            logOutVC.tabBarItem = UITabBarItem(title: "LogAuth", image: K.image.openDoor, selectedImage: nil)
+            
+            navigationVC.navigationBar.barTintColor = K.color.background
+            navigationVC.navigationBar.tintColor = .white
+            navigationVC.viewControllers = [mainTabBarVC]
+
+        }else {
+            let authController = AuthController()
+            navigationVC.viewControllers = [authController]
+        }
+        window?.rootViewController = navigationVC
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
