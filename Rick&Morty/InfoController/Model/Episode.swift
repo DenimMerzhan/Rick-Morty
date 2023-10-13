@@ -12,6 +12,5 @@ struct Episode: Decodable {
     var name: String
     var air_date: String
     var episode: String
-    var season: String
     
 }

@@ -14,6 +14,6 @@ protocol EpisodeCellViewModelType: InfoType {
     var episode: String? {get}
     
     var season: String? {get}
-    var releaseDate: String? {get}
+    var airDate: String? {get}
     
 }

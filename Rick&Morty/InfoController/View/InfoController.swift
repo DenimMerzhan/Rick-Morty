@@ -18,7 +18,6 @@ class InfoController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.init(nibName: nil, bundle: nil)
     }
     
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -34,14 +33,21 @@ class InfoController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.backgroundColor = K.color.background
         self.view.addSubview(tableView)
         
+        tableView.allowsSelection = false
+        tableView.separatorStyle = .none
         self.tableView.delegate = self
         self.tableView.dataSource = self
         tableView.register(InfoCell.self, forCellReuseIdentifier: InfoCell.identifier)
         tableView.register(PlanetCell.self, forCellReuseIdentifier: PlanetCell.identifier)
         tableView.register(EpisodeCell.self, forCellReuseIdentifier: EpisodeCell.identifier)
+        
+        infoViewModel.fetchAllEpisodes { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
     
     func setupConstraints(){
+        
         tableView.snp.makeConstraints { make in
             make.left.right.equalTo(self.view).inset(UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
             make.top.bottom.equalTo(self.view)
@@ -71,7 +77,9 @@ class InfoController: UIViewController, UITableViewDataSource, UITableViewDelega
                 return planetCell
             }
         default:
-            if let episodeCell = tableView.dequeueReusableCell(withIdentifier: PlanetCell.identifier, for: indexPath) as? EpisodeCell {
+            if let episodeCell = tableView.dequeueReusableCell(withIdentifier: EpisodeCell.identifier, for: indexPath) as? EpisodeCell {
+                let viewModel = infoViewModel.cellViewModel(forIndexPath: indexPath) as? EpisodeCellViewModel
+                episodeCell.viewModel = viewModel
                 return episodeCell
             }
         }
@@ -79,4 +87,34 @@ class InfoController: UIViewController, UITableViewDataSource, UITableViewDelega
         return UITableViewCell()
     }
     
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        switch section {
+        case 0:
+            let avatarHeader = AvatarHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 250), name: infoViewModel.character.name, status: infoViewModel.character.status)
+            avatarHeader.avatar.kf.setImage(with: infoViewModel.character.image)
+            return avatarHeader
+        default:
+            let episodeHeader = EpisodeHeader(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 70))
+            episodeHeader.label.text = infoViewModel.textFooter(textForFooterInSection: section)
+            return episodeHeader
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section {
+        case 0:
+            return 250
+        default:
+            return 70
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return .leastNormalMagnitude
+    }
 }

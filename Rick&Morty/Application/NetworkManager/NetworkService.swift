@@ -21,7 +21,7 @@ class NetworkService {
         
     }
     
-    func fetchCharacter(with url: URL, completion: @escaping (Result<Data,NetworkError>) -> ()) {
+    func getData(with url: URL, completion: @escaping (Result<Data,NetworkError>) -> ()) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             
             if let error = error {

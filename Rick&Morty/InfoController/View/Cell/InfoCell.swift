@@ -13,9 +13,9 @@ final class InfoCell: UITableViewCell {
     
     static let identifier = "InfoCell"
     
-    let species = UILabel().createLabel(with: nil, withTextColor: .white,withAligment: .left)
-    let type = UILabel().createLabel(with: nil, withTextColor: .white,withAligment: .left)
-    let gender = UILabel().createLabel(with: nil, withTextColor: .white,withAligment: .left)
+    let species = UILabel().createLabel(with: nil, withTextColor: .white)
+    let type = UILabel().createLabel(with: nil, withTextColor: .white)
+    let gender = UILabel().createLabel(with: nil, withTextColor: .white)
     
     weak var viewModel: InfoCellViewModel? {
         didSet {

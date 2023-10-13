@@ -19,12 +19,12 @@ extension UIViewController {
 
 extension UILabel {
     
-    func createLabel(with text: String?, withTextColor color: UIColor, withAligment aligment:  NSTextAlignment = .center) -> UILabel {
+    func createLabel(with text: String?, withTextColor color: UIColor, withAligment aligment:  NSTextAlignment = .left, withFontr font: UIFont = .systemFont(ofSize: 15)) -> UILabel {
         let label = UILabel()
         label.text = text
         label.textAlignment = aligment
         label.textColor = color
-        label.font = .systemFont(ofSize: 15)
+        label.font = font
         return label
     }
     

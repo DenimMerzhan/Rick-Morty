@@ -18,8 +18,8 @@ class PlanetCell: UITableViewCell {
         return imageView
     }()
     
-    let name = UILabel().createLabel(with: nil, withTextColor: .white, withAligment: .left)
-    let type = UILabel().createLabel(with: "unknow", withTextColor: .green, withAligment: .left)
+    let name = UILabel().createLabel(with: nil, withTextColor: .white)
+    let type = UILabel().createLabel(with: "unknow", withTextColor: .green)
     
     weak var viewModel: PlanetCellViewModel? {
         didSet {

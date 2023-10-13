@@ -20,10 +20,10 @@ class EpisodeCellViewModel: EpisodeCellViewModelType {
     }
     
     var season: String? {
-        return InfoModel.convertSeasonOnServer(season: characterEpisode?.season)
+        return InfoModel.convertSeasonOnServer(season: characterEpisode?.episode)
     }
     
-    var releaseDate: String? {
+    var airDate: String? {
         return characterEpisode?.air_date
     }
     

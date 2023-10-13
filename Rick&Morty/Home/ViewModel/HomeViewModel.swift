@@ -32,7 +32,11 @@ final class HomeViewModel: HomeViewModelType {
         let cell = CharacterCellViewModel(character: character)
         return cell
     }
-    
+}
+
+//MARK: - FetchCharacters
+
+extension HomeViewModel {
     
     func fetchCharacters(numberOfCharacters: Int, completion: @escaping () -> Void ) {
         
@@ -41,7 +45,7 @@ final class HomeViewModel: HomeViewModelType {
         
         for i in 0...count {
             
-            fetchCharacter { [weak self] in
+            fetchCharacter(indexCharacter: indexCharacter) { [weak self] in
                 completion()
                 if i == count {
                     self?.isThereActiveDowloadNewCharacter = false
@@ -52,10 +56,10 @@ final class HomeViewModel: HomeViewModelType {
         }
     }
     
-    private func fetchCharacter(completion: @escaping () -> Void ){
+    private func fetchCharacter(indexCharacter: Int, completion: @escaping () -> Void ){
         guard let url = URL(string: Link.character.url + "/" + "\(indexCharacter)") else {return}
         
-        NetworkService.shared.fetchCharacter(with: url) { [weak self] result in
+        NetworkService.shared.getData(with: url) { [weak self] result in
             switch result {
             case.failure(let error):
                 print(error)
@@ -74,7 +78,6 @@ final class HomeViewModel: HomeViewModelType {
         }
     }
 }
-
 
 //MARK: - Link
 
