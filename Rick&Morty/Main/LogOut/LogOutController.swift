@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SnapKit
+import Kingfisher
 
 class LogOutController: RickAndMortyController {
     
@@ -24,7 +25,6 @@ class LogOutController: RickAndMortyController {
     }
     
     func setupView(){
-        self.tabBarItem = UITabBarItem(title: nil, image: K.image.openDoor, selectedImage: nil)
         self.view.addSubview(portalImage)
         self.view.addSubview(logOutButton)
     }
@@ -71,6 +71,7 @@ extension LogOutController {
     func deleteUser(){
         do {
             try KeychainManager.shared.deleteCredentials(withKey: K.userData.key)
+            KingfisherManager.shared.cache.clearMemoryCache()
             self.dismiss(animated: true)
         }catch{
             let alert = createErrorAlert(errorMessage: "\(error)")

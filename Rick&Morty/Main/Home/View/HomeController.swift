@@ -33,7 +33,6 @@ final class HomeController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
-    
 }
 
 extension HomeController: UICollectionViewDelegateFlowLayout {
@@ -115,7 +114,6 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
             })
         }
     }
-    
 }
 
 //MARK: - SegueToInfoVC

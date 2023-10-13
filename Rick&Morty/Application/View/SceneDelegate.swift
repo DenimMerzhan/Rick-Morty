@@ -27,6 +27,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             mainTabBarVC.view.backgroundColor = K.color.background
             mainTabBarVC.setViewControllers([homeVC,logOutVC], animated: true)
             
+            logOutVC.tabBarItem = UITabBarItem(title: "LogAuth", image: K.image.openDoor, selectedImage: nil)
+            
             let navigationVC = UINavigationController(rootViewController: mainTabBarVC)
             navigationVC.navigationBar.barTintColor = K.color.background
             navigationVC.navigationBar.tintColor = .white

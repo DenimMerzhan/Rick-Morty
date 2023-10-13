@@ -111,6 +111,5 @@ final class CharacterCell: UICollectionViewCell {
             make.top.equalTo(name.snp.bottom)
         }
     }
-    
 }
 

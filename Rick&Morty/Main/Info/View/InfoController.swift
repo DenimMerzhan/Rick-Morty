@@ -125,4 +125,8 @@ class InfoController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return .leastNormalMagnitude
     }
+    
+    deinit {
+        print("\(self) - deinit")
+    }
 }
