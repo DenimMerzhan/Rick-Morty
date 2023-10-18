@@ -18,6 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         let navigationVC = UINavigationController()
+        navigationVC.navigationBar.barTintColor = K.color.background
+        navigationVC.navigationBar.tintColor = .white
+        
         let mainTabBarVC = MainTabBarController()
         
         
@@ -27,11 +30,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let homeVC = HomeController(collectionViewLayout: UICollectionViewFlowLayout())
             
             mainTabBarVC.setViewControllers([homeVC,logOutVC], animated: true)
-            
             logOutVC.tabBarItem = UITabBarItem(title: "LogAuth", image: K.image.openDoor, selectedImage: nil)
             
-            navigationVC.navigationBar.barTintColor = K.color.background
-            navigationVC.navigationBar.tintColor = .white
             navigationVC.viewControllers = [mainTabBarVC]
 
         }else {
@@ -39,6 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             navigationVC.viewControllers = [authController]
         }
         window?.rootViewController = navigationVC
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

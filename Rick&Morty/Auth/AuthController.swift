@@ -128,16 +128,15 @@ extension AuthController {
         loginTextField.text = ""
         passwordTextfield.text = ""
         
-        let mainTabBarVC = UITabBarController()
+        let mainTabBarVC = MainTabBarController()
+        
         let logOutVC = LogOutController()
         let homeVC = HomeController(collectionViewLayout: UICollectionViewFlowLayout())
         
-        mainTabBarVC.tabBar.tintColor = .green
-        mainTabBarVC.tabBar.barTintColor = K.color.background
-        mainTabBarVC.view.backgroundColor = K.color.background
         mainTabBarVC.setViewControllers([homeVC,logOutVC], animated: true)
         
         logOutVC.tabBarItem = UITabBarItem(title: "LogAuth", image: K.image.openDoor, selectedImage: nil)
+
         
         navigationController?.pushViewController(mainTabBarVC, animated: true)
     }
