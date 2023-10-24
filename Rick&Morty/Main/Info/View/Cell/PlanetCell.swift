@@ -59,10 +59,10 @@ class PlanetCell: UITableViewCell {
     
     func setupView(){
         self.addSubview(stackView)
-        self.backgroundColor = K.color.backgroundCell
+        self.backgroundColor = Context.color.backgroundCell
         self.layer.cornerRadius = 15
         planetView.layer.cornerRadius = 10
-        planetView.backgroundColor = K.color.planet
+        planetView.backgroundColor = Context.color.planet
         planetView.addSubview(image)
     }
     

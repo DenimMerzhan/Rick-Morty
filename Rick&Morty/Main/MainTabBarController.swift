@@ -18,8 +18,8 @@ class MainTabBarController: UITabBarController {
     
     func setupView(){
         self.tabBar.tintColor = .green
-        self.tabBar.barTintColor = K.color.background
-        self.view.backgroundColor = K.color.background
+        self.tabBar.barTintColor = Context.color.background
+        self.view.backgroundColor = Context.color.background
     }
     
 }

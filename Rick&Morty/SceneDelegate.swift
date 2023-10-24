@@ -18,19 +18,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         let navigationVC = UINavigationController()
-        navigationVC.navigationBar.barTintColor = K.color.background
+        navigationVC.navigationBar.barTintColor = Context.color.background
         navigationVC.navigationBar.tintColor = .white
         
         let mainTabBarVC = MainTabBarController()
         
         
-        if KeychainManager.shared.getCredentials(withKey: K.userData.key) != nil {
+        if KeychainManager.shared.getCredentials(withKey: UserService.shared.keyChainUserKey) != nil {
             
             let logOutVC = LogOutController()
             let homeVC = HomeController(collectionViewLayout: UICollectionViewFlowLayout())
             
             mainTabBarVC.setViewControllers([homeVC,logOutVC], animated: true)
-            logOutVC.tabBarItem = UITabBarItem(title: "LogAuth", image: K.image.openDoor, selectedImage: nil)
+            logOutVC.tabBarItem = UITabBarItem(title: "LogAuth", image: Context.image.openDoor, selectedImage: nil)
             
             navigationVC.viewControllers = [mainTabBarVC]
 

@@ -77,7 +77,7 @@ final class CharacterCell: UICollectionViewCell {
         self.addSubview(avatar)
         self.addSubview(name)
         avatar.addSubview(loadIndicator)
-        self.backgroundColor = K.color.backgroundCell
+        self.backgroundColor = Context.color.backgroundCell
         self.layer.cornerRadius = 10
         name.numberOfLines = 2
     }

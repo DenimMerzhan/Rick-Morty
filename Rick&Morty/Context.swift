@@ -8,13 +8,9 @@
 import Foundation
 import UIKit
 
-struct K {
-    
+struct Context {
     static let color = Color()
     static let image = Image()
-    static let userData = UserData()
-    
-    
 }
 
 struct Color {
@@ -30,6 +26,3 @@ struct Image {
     var openDoor = UIImage(named: "OpenDoor")
 }
 
-struct UserData {
-    var key = "UserAccount"
-}

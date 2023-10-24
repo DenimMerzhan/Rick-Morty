@@ -14,7 +14,7 @@ class PlanetCellViewModel: PlanetCellViewModelType {
     var location: Location?
     
     var image: UIImage? {
-        return K.image.planet
+        return Context.image.planet
     }
     
     var name: String? {

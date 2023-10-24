@@ -20,7 +20,7 @@ final class HomeController: UICollectionViewController {
     
     func setupView(){
         self.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: nil)
-        self.collectionView.backgroundColor = K.color.background
+        self.collectionView.backgroundColor = Context.color.background
         collectionView.register(CharacterCell.self, forCellWithReuseIdentifier: CharacterCell.identifier)
         homeViewModel = HomeViewModel()
         homeViewModel?.fetchCharacters(numberOfCharacters: 20, completion: {

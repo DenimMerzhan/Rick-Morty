@@ -34,8 +34,8 @@ class InfoController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func startConfing(){
         self.tableView.showsVerticalScrollIndicator = false
-        self.view.backgroundColor = K.color.background
-        self.tableView.backgroundColor = K.color.background
+        self.view.backgroundColor = Context.color.background
+        self.tableView.backgroundColor = Context.color.background
         self.view.addSubview(tableView)
         
         tableView.allowsSelection = false

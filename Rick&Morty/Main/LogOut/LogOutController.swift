@@ -70,7 +70,7 @@ extension LogOutController {
 extension LogOutController {
     func deleteUser(){
         do {
-            try KeychainManager.shared.deleteCredentials(withKey: K.userData.key)
+            try KeychainManager.shared.deleteCredentials(withKey: UserService.shared.keyChainUserKey)
             KingfisherManager.shared.cache.clearMemoryCache()
             peromSegueToAuthVC()
         }catch{

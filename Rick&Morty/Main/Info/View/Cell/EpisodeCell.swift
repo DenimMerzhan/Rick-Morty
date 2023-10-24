@@ -27,7 +27,7 @@ final class EpisodeCell: UITableViewCell {
     
     private lazy var backView: UIView  = {
        let view = UIView()
-        view.backgroundColor = K.color.backgroundCell
+        view.backgroundColor = Context.color.backgroundCell
         view.layer.cornerRadius = 15
         return view
     }()
@@ -61,7 +61,7 @@ final class EpisodeCell: UITableViewCell {
     
     func setupView(){
         self.addSubview(backView)
-        self.backgroundColor = K.color.background
+        self.backgroundColor = Context.color.background
         backView.addSubview(stackView)
     }
     

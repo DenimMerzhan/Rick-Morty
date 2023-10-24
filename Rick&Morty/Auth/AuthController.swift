@@ -19,7 +19,7 @@ class AuthController: RickAndMortyController {
         let textfield = UITextField()
         textfield.textColor = .white
         textfield.borderStyle = .roundedRect
-        textfield.backgroundColor = K.color.backgroundCell
+        textfield.backgroundColor = Context.color.backgroundCell
         textfield.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.5)])
         return textfield
     }()
@@ -28,7 +28,7 @@ class AuthController: RickAndMortyController {
         let textfield = UITextField()
         textfield.borderStyle = .roundedRect
         textfield.textColor = .white
-        textfield.backgroundColor = K.color.backgroundCell
+        textfield.backgroundColor = Context.color.backgroundCell
         textfield.attributedPlaceholder = NSAttributedString(string: "Login", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.5)])
         return textfield
     }()
@@ -111,7 +111,7 @@ class AuthController: RickAndMortyController {
         guard let password = passwordTextfield.text, let login = loginTextField.text else {return}
         let credentials = KeychainManager.Credintials(login: login, password: password)
         do {
-            try KeychainManager.shared.addCredentials(credentials, withKey: K.userData.key)
+            try KeychainManager.shared.addCredentials(credentials, withKey: UserService.shared.keyChainUserKey)
             perfomSegueToMainVC()
         }catch {
             let alert = createErrorAlert(errorMessage: "\(error)")
@@ -135,7 +135,7 @@ extension AuthController {
         
         mainTabBarVC.setViewControllers([homeVC,logOutVC], animated: true)
         
-        logOutVC.tabBarItem = UITabBarItem(title: "LogAuth", image: K.image.openDoor, selectedImage: nil)
+        logOutVC.tabBarItem = UITabBarItem(title: "LogAuth", image: Context.image.openDoor, selectedImage: nil)
 
         
         navigationController?.pushViewController(mainTabBarVC, animated: true)

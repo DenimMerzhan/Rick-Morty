@@ -8,7 +8,6 @@
 import Foundation
 
 struct DecodeJson {
-    
     static func decode<T: Decodable>(with data: Data, type: T.Type) -> T? {
         let jsonDecoder = JSONDecoder()
         do {
@@ -19,5 +18,4 @@ struct DecodeJson {
             return nil
         }
     }
-    
 }

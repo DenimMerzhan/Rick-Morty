@@ -47,7 +47,7 @@ final class AvatarHeaderView: UIView {
     
     func setupView(){
         self.addSubview(stackView)
-        self.backgroundColor = K.color.background
+        self.backgroundColor = Context.color.background
     }
     
     func setupConstraints(){

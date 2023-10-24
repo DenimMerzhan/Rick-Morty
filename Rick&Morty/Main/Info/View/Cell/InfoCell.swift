@@ -66,7 +66,7 @@ final class InfoCell: UITableViewCell {
     }
     
     func setupView(){
-        self.backgroundColor = K.color.backgroundCell
+        self.backgroundColor = Context.color.backgroundCell
         self.layer.cornerRadius = 15
         self.addSubview(mostStackView)
     }

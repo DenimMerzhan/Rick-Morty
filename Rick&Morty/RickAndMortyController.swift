@@ -11,14 +11,14 @@ import UIKit
 class RickAndMortyController: UIViewController {
     
     var portalImage: UIImageView = {
-        let imagaView = UIImageView(image: K.image.portal)
+        let imagaView = UIImageView(image: Context.image.portal)
         imagaView.contentMode = .scaleAspectFit
         return imagaView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = K.color.background
+        self.view.backgroundColor = Context.color.background
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,10 +28,8 @@ class RickAndMortyController: UIViewController {
     }
     
     func startConfing(){
-        
     }
     
     func setupConstraints(){
-        
     }
 }

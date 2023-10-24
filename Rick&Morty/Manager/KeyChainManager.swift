@@ -13,7 +13,6 @@ enum KeychainError: Error {
     case itemNotFound
     case errorStatus(String?)
     
-    
     init(status: OSStatus) {
         switch status {
         case errSecDuplicateItem:
@@ -28,11 +27,8 @@ enum KeychainError: Error {
 }
 
 final class KeychainManager {
-    
     static let shared = KeychainManager()
-    
     private init(){}
-    
     private func addItem(query: [CFString: Any]) throws {
         let status = SecItemAdd(query as CFDictionary, nil)
         
@@ -64,7 +60,6 @@ final class KeychainManager {
     
     private func deleteItem(query: [CFString: Any]) throws {
         let status = SecItemDelete(query as CFDictionary)
-        
         if status != errSecSuccess {
             throw KeychainError(status: status)
         }
